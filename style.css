@@ -1,6 +1,7 @@
 :root {
     --Snow: #fffafa;
     --MintCondition: #5fe19b;
+    --Ashtray: #515151;
 }
 
 html {
@@ -15,25 +16,25 @@ html,
 }
 
 body {
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
     font: 'Exo';
     min-width: 100vw;
     min-height: 100vh;
     margin: 0;
     background: url(https://images.unsplash.com/photo-1552820728-8b83bb6b773f?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070);
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 a {
     text-decoration: none;
 }
-
-.bg {
-    position: absolute;
-    width: 100%;
-}
-
-.bg__img {
-    width: 100%;
+button,
+input {
+    border: none;
 }
 
 .logoBox {
@@ -122,13 +123,11 @@ a {
 
 .passwordBox__userPassword {
     position: absolute;
-    border: none;
 }
 
 .passwordBox__hiddenEye {
     position: relative;
     height: 100%;
-    border: none;
     background: none;
     left: 95.18%;
     align-items: flex-end;
@@ -293,4 +292,51 @@ a {
     height: 20px;
     width: 20px;
     padding-left: 10%;
+}
+
+.carousel {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 43px;
+    height: 43px;
+    border-radius: 100%;
+    padding: 0%;
+
+    top: 50%;
+    transform: translate(0%, -50%);
+
+    background: var(--Ashtray);
+    opacity: 0.8;
+}
+.previous {
+    left: 2.2%;
+}
+.next {
+    right: 2.2%;
+}
+
+.carouselSlider {
+    position: absolute;
+    bottom: 3.1%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 8.3%;
+    height: 2.6%;
+    background: var(--Ashtray);
+    border-radius: 18px;
+}
+
+.carouselSlider button {
+    padding: 0%;
+    margin: 0%;
+    border-radius: 100%;
+    width: 4%;
+    height: 26%;
 }

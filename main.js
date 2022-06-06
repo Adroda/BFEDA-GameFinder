@@ -1,1 +1,3 @@
-import styles from "./Login.css";
+const login = () => {
+    window.location.replace('components/home/index.html');
+};
