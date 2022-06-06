@@ -1,0 +1,296 @@
+:root {
+    --Snow: #fffafa;
+    --MintCondition: #5fe19b;
+}
+
+html {
+    line-height: 1.2;
+    -webkit-text-size-adjust: 100%;
+}
+
+html,
+* {
+    font-family: 'Exo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Ubuntu, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+body {
+    font: 'Exo';
+    min-width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    background: url(https://images.unsplash.com/photo-1552820728-8b83bb6b773f?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070);
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+.bg {
+    position: absolute;
+    width: 100%;
+}
+
+.bg__img {
+    width: 100%;
+}
+
+.logoBox {
+    position: absolute;
+    width: 322px;
+    height: 66px;
+    left: 39px;
+    top: 30px;
+}
+.logo {
+    position: absolute;
+    left: 4.42%;
+    right: 4.42%;
+    top: 21.62%;
+    bottom: 21.62%;
+    color: var(--Snow);
+}
+.logoPath {
+    color: var(--Snow);
+}
+
+.loginBox {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 25.1%;
+    height: 68.6%;
+    right: 7%;
+    top: 12.3%;
+    padding: 3.9% 3.5%;
+
+    background: rgb(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+
+    border-radius: 12px;
+}
+
+.loginBox__loginTitle {
+    height: 2.6%;
+    width: 100%;
+
+    font-size: 74%;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0px;
+
+    text-align: center;
+
+    color: var(--Snow);
+}
+
+.loginBox__loginSubTitle {
+    width: 362px;
+    height: 28px;
+    left: 65.73%;
+    top: 253px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    align-items: center;
+    text-align: center;
+
+    color: var(--Snow);
+}
+
+.loginBox__userEmail,
+.loginBox__passwordBox {
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10.58px;
+    padding-bottom: 10.58px;
+
+    background: var(--Snow);
+    border-radius: 4px;
+}
+
+.loginBox__userEmail {
+    margin-bottom: 16px;
+}
+
+.passwordBox__userPassword {
+    position: absolute;
+    border: none;
+}
+
+.passwordBox__hiddenEye {
+    position: relative;
+    height: 100%;
+    border: none;
+    background: none;
+    left: 95.18%;
+    align-items: flex-end;
+    top: 16.67%;
+    bottom: 16.66%;
+}
+
+.inputOptions__rememberMeCheckbox {
+    box-sizing: border-box;
+
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    height: 20px;
+    width: 20px;
+    justify-content: center;
+    margin-top: 13px;
+    margin-right: 16px;
+
+    background-color: rgba(0, 0, 0, 0.08);
+
+    border: 1.5px solid var(--Snow);
+    border-radius: 4px;
+}
+
+.inputOptions__rememberMe {
+    height: 19px;
+    left: 68.14%;
+    right: 25.12%;
+    top: calc(50% - 19px / 2 - 84.5px);
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: var(--Snow);
+}
+
+.forgotPassword {
+    margin-left: 105.36px;
+    top: calc(50% - 19px / 2 - 85.5px);
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: right;
+
+    color: var(--MintCondition);
+}
+
+.loginBox__loginButton {
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    height: 47px;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: var(--Snow);
+
+    background: #4cc986;
+    border-radius: 6px;
+}
+
+.loginBox__inputOptions,
+.loginBox__register,
+.loginBox__lineBreak {
+    display: flex;
+    flex-direction: row;
+}
+
+.lineBreak {
+    margin-bottom: 29.29px;
+}
+.register {
+    justify-content: center;
+}
+
+.register__registerLink,
+.register__registerTxt {
+    height: 19px;
+
+    top: calc(50% - 19px / 2 + 37.5px);
+    margin-top: 14px;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    /* identical to box height */
+
+    text-align: right;
+}
+
+.registerTxt {
+    color: var(--Snow);
+}
+
+.registerLink {
+    margin-left: 5.19px;
+
+    color: var(--MintCondition);
+}
+
+.loginBox__hr {
+    width: 40.7%;
+    margin: 0%;
+}
+
+.loginBox__orTxt {
+    margin: 0%;
+    width: 67.12px;
+
+    text-align: center;
+
+    color: var(--Snow);
+}
+
+.loginBox__loginOption {
+    display: flex;
+    width: 362px;
+    height: 47px;
+    left: 982px;
+    top: 651px;
+    margin-bottom: 24px;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+
+    border: 2px solid var(--Snow);
+    border-radius: 6px;
+
+    align-items: center;
+    justify-content: space-around;
+    background-color: transparent;
+    color: var(--Snow);
+}
+
+.loginBox__loginOption p {
+    padding-right: 19%;
+}
+
+.loginOption__loginButtonLogo {
+    height: 20px;
+    width: 20px;
+    padding-left: 10%;
+}

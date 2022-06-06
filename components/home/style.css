@@ -1,0 +1,382 @@
+:root {
+    --Snow: #ffffff;
+    --Shadow: #141414;
+    --MintCondition: #5fe19b;
+    --SoJaded: #36b972;
+    --KateMoss: #0ea152;
+    --ColorIris: #5f81fb;
+    --Ashtray: #515151;
+    --Charcoal: #303030;
+    --Fossil: #939393;
+}
+
+html {
+    line-height: 1.2;
+    -webkit-text-size-adjust: 100%;
+}
+
+html,
+* {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu,
+        'Helvetica Neue', Helvetica, sans-serif, 'Exo';
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--Snow);
+    background-color: var(--Shadow);
+    font: 'Exo';
+    font-style: normal;
+}
+
+.header {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 90.82%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: linear-gradient(
+        180deg,
+        var(--MintCondition) 0%,
+        var(--SoJaded) 50%,
+        var(--KateMoss) 100%
+    );
+    box-shadow: 1px -3px 36px rgba(0, 0, 0, 0.5);
+}
+.header__logo {
+    width: 18.5vw;
+}
+.header__search {
+    position: relative;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    width: 25.1vw;
+    height: 4.6vh;
+    display: flex;
+    align-items: center;
+
+    background: var(--Snow);
+    border-radius: 4px;
+}
+.search__box {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+.search__magnifyingglass {
+    margin-left: 14px;
+    margin-right: 11px;
+}
+.header__profile {
+    display: flex;
+}
+.profile__logout {
+    margin-right: 16px;
+    background-color: transparent;
+    border-style: none;
+
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+}
+
+.profile__avatar {
+    margin-right: 40px;
+}
+
+.topContainer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 6%;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.topContainer__main {
+    margin-bottom: 0px;
+    height: 65px;
+    left: 2.78%;
+    right: 69.44%;
+    top: calc(50% - 65px / 2 - 366.5px);
+
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 64px;
+}
+.topContainer__subtitle {
+    margin-top: 0px;
+}
+
+.topContainer__darkmode {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 7px;
+}
+
+.darkmode__txt {
+    width: 86px;
+    height: 39px;
+    left: 1257px;
+    top: 113px;
+
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+}
+.darkmode__buttonContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    width: 44px;
+    height: 22px;
+    font-size: 9px;
+    font-weight: 600;
+    text-align: left;
+
+    background: var(--ColorIris);
+    border-radius: 23px;
+}
+.darkmode__button {
+    left: 52.27%;
+    right: 6.82%;
+    top: 9.09%;
+    bottom: 9.09%;
+    border: none;
+    border-radius: 40px;
+    height: 18px;
+    width: 18px;
+
+    background: var(--Snow);
+}
+.topContainer__listStyleButtons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+}
+
+.listStyleButtons__row,
+.listStyleButtons__column {
+    height: 40px;
+    width: 40px;
+
+    border-radius: 10px;
+    border: none;
+}
+.listStyleButtons__row {
+    background: var(--Ashtray);
+}
+.listStyleButtons__column {
+    background: var(--Charcoal);
+}
+
+.sideBar {
+    margin-left: 40px;
+    width: 15vw;
+}
+
+.sideBar__topItem {
+    margin: 7px 0px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.sideBar__home {
+    height: 27px;
+    left: 2.78%;
+    right: 93.4%;
+    top: calc(50% - 27px / 2 - 263.5px);
+
+    color: var(--MintCondition);
+}
+
+.sideBar__popularHeader {
+    height: 29px;
+    left: 2.78%;
+    right: 91.6%;
+    top: calc(50% - 29px / 2 + 44.5px);
+    margin: 55px 0px 18px 0px;
+
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 29px;
+}
+
+.sideBar__item {
+    height: 24px;
+    margin: 8.5px 0px;
+    display: flex;
+    align-items: center;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.sideBar__firstItem {
+    margin-top: 37px;
+}
+
+.sideBar__logo {
+    margin-right: 10.79px;
+    height: 80%;
+}
+.mainBody {
+    display: flex;
+}
+.cardList {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 84.5vw;
+}
+.cardList__card {
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    width: 90%;
+    height: 90%;
+    margin: 20px;
+
+    background-color: var(--Charcoal);
+    border-radius: 12px;
+}
+.card__img {
+    width: 100%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.card__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.noMargin {
+    margin: 0%;
+}
+.card__info {
+    padding: 16px;
+}
+.info__title {
+    left: 4.41%;
+    right: 14.88%;
+    top: 62.1%;
+    bottom: 27.39%;
+
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+}
+.info__number {
+    left: 84.57%;
+    right: 4.41%;
+    top: 64.33%;
+    bottom: 29.3%;
+
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: right;
+
+    color: var(--SoJaded);
+}
+.card__releaseDate {
+    margin: 0px 16px 4px 16px;
+}
+.card__releaseDate_txt {
+    left: 4.41%;
+    right: 57.85%;
+    top: 77.71%;
+    bottom: 14.65%;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+
+    color: var(--Fossil);
+}
+.releaseDate__date {
+    left: 34.44%;
+    right: 27.82%;
+    top: 77.71%;
+    bottom: 14.65%;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+
+    color: var(--Snow);
+}
+
+.releaseDate__consoles {
+    display: flex;
+    width: 40%;
+}
+.consoles__logo {
+    margin-left: 16px;
+    width: 20px;
+    height: 20px;
+    justify-content: right;
+}
+.card__genres {
+    margin: 0px 16px 18px 16px;
+}
+.genres__txt {
+    left: 4.41%;
+    right: 57.85%;
+    top: 86.62%;
+    bottom: 5.73%;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+
+    color: var(--Fossil);
+}
+
+.genres__list {
+    left: 34.44%;
+    right: 4.41%;
+    top: 86.62%;
+    bottom: 5.73%;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+
+    color: var(--Snow);
+}
