@@ -294,6 +294,7 @@ input {
 .carouselContainer {
     width: 100%;
     margin: auto;
+    overflow: hidden;
 }
 .carouselContainer__carouselSlide {
     display: flex;
@@ -343,11 +344,21 @@ input {
     background: var(--Ashtray);
     border-radius: 18px;
 }
-
-.carouselSlider button {
+.carouselSlider__btn,
+.carouselSlider__btn1,
+.carouselSlider__btn2,
+.carouselSlider__btn3,
+.carouselSlider__btn4,
+.carouselSlider__btn5,
+.carouselSlider__btn6 {
     padding: 0%;
     margin: 0%;
     border-radius: 100%;
-    width: 4%;
-    height: 26%;
+    width: 7px;
+    height: 7px;
+    opacity: 0.25;
+}
+
+.carouselSlider__btn--active {
+    opacity: 1;
 }
