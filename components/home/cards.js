@@ -10,10 +10,8 @@ const api = async () => {
 
 const renderCards = async () => {
     const games = await api();
-    console.log(games.results);
     var card;
     games.results.forEach((element) => {
-        console.log(element);
         card = `
     <div class="cardList__card">
     <img

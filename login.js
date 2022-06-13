@@ -13,7 +13,21 @@
 const loginBtn = document.getElementById('loginBtn');
 
 loginBtn.addEventListener('click', () => {
-    /*var xhttp = new XMLHttpRequest();
+    let user = { email: 'prueba@prueba.com', password: '123456' };
+    let parsedUser = JSON.stringify(user);
+    fetch('http://localhost:3000/login', {
+        headers: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        body: parsedUser,
+    })
+        .then((res) => console.log(res))
+        .catch((err) => {
+            throw err;
+        });
+});
+
+//email y pass son la informacion q agarro de los input y la checkie,
+/*var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             // Typical action to be performed when the document is ready:
@@ -22,37 +36,4 @@ loginBtn.addEventListener('click', () => {
     };
     xhttp.open('POST', 'http://127.0.0.1:3000/login', true);
     xhttp.send({ email: 'email@algo.com', password: 'password' });*/
-    fetch('http://localhost:3000/login', {
-        method: 'POST',
-        body: { email: 'email@algo.com', password: 'password' }, //email y pass son la informacion q agarro de los input y la checkie,
-    })
-        .then((res) => console.log(res))
-        .catch(err);
-    //window.location.replace('components/home/index.html');
-});
-
-/*class Login {
-    constructor(form, fields) {
-        this.form = form;
-        this.fields = fields;
-        this.validateonSubmit();
-    }
-
-    validateonSubmit() {
-        let self = this;
-
-        this.form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            self.fields.forEach((field) => {
-                const input = document.querySelector(`#${field}`);
-                console.log(input.value);
-            });
-        });
-    }
-}
-
-const form = document.querySelector('#loginForm');
-if (form) {
-    const fields = ['username', 'password'];
-    const validator = new Login(form, fields);
-}*/
+//window.location.replace('components/home/index.html');
