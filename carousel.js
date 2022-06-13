@@ -105,9 +105,4 @@ setInterval(() => {
             ].classList.add('carouselSlider__btn--active');
         }
     });
-}, 3000);
-
-// LOGIN
-const login = () => {
-    window.location.replace('components/home/index.html');
-};
+}, 10000);
