@@ -2,6 +2,8 @@
     --Snow: #fffafa;
     --MintCondition: #5fe19b;
     --Ashtray: #515151;
+    --CoralReef: #fb5f5f;
+    --Charcoal: #303030;
 }
 
 html {
@@ -33,6 +35,9 @@ button,
 input {
     border: none;
 }
+input:focus {
+    outline: none;
+}
 
 .logoBox {
     position: absolute;
@@ -58,7 +63,7 @@ input {
     display: flex;
     flex-direction: column;
     width: 25.1%;
-    height: 68.6%;
+    height: 58%;
     right: 7%;
     top: 12.3%;
     padding: 3.9% 3.5%;
@@ -70,12 +75,13 @@ input {
 }
 
 .loginBox__loginTitle {
-    height: 2.6%;
+    height: 3.6%;
     width: 100%;
+    margin: 0;
 
-    font-size: 74%;
+    font-size: 20px;
     font-weight: 700;
-    line-height: 100%;
+    line-height: 27px;
     letter-spacing: 0px;
 
     text-align: center;
@@ -105,10 +111,12 @@ input {
     right: 0%;
     top: 0%;
     bottom: 0%;
+    height: 47px;
     padding-left: 16px;
     padding-right: 16px;
-    padding-top: 10.58px;
-    padding-bottom: 10.58px;
+
+    font-size: 15px;
+    line-height: 20px;
 
     background: var(--Snow);
     border-radius: 4px;
@@ -117,9 +125,13 @@ input {
 .loginBox__userEmail {
     margin-bottom: 16px;
 }
-
+.loginBox__passwordBox {
+    display: flex;
+    align-items: center;
+}
 .passwordBox__userPassword {
     position: absolute;
+    width: 65%;
 }
 
 .passwordBox__hiddenEye {
@@ -128,12 +140,15 @@ input {
     background: none;
     left: 95.18%;
     align-items: flex-end;
-    top: 16.67%;
+    top: 8%;
     bottom: 16.66%;
 }
 
 .inputOptions__rememberMeCheckbox {
     box-sizing: border-box;
+    appearance: none;
+    background-color: var(--Charcoal);
+    cursor: pointer;
 
     left: 0%;
     right: 0%;
@@ -150,7 +165,10 @@ input {
     border: 1.5px solid var(--Snow);
     border-radius: 4px;
 }
-
+.inputOptions__rememberMeCheckbox:checked {
+    background-color: var(--MintCondition);
+    content: '';
+}
 .inputOptions__rememberMe {
     height: 19px;
     left: 68.14%;
@@ -211,11 +229,13 @@ input {
     flex-direction: row;
 }
 
-.lineBreak {
+.loginBox__lineBreak {
     margin-bottom: 29.29px;
 }
-.register {
+.loginBox__register {
     justify-content: center;
+    margin-top: 14px;
+    margin-bottom: 16px;
 }
 
 .register__registerLink,
@@ -235,22 +255,22 @@ input {
     text-align: right;
 }
 
-.registerTxt {
+.register__registerTxt {
     color: var(--Snow);
 }
 
-.registerLink {
+.register__registerLink {
     margin-left: 5.19px;
 
     color: var(--MintCondition);
 }
 
-.loginBox__hr {
+.loginBox__lineBreak__hr {
     width: 40.7%;
     margin: 0%;
 }
 
-.loginBox__orTxt {
+.loginBox__lineBreak__orTxt {
     margin: 0%;
     width: 67.12px;
 
@@ -258,14 +278,18 @@ input {
 
     color: var(--Snow);
 }
-
-.loginBox__loginOption {
+.loginBox__socialMedia {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 198px;
+}
+.socialMedia__loginOption {
     display: flex;
     width: 362px;
     height: 47px;
     left: 982px;
     top: 651px;
-    margin-bottom: 24px;
 
     font-style: normal;
     font-weight: 700;
@@ -281,7 +305,7 @@ input {
     color: var(--Snow);
 }
 
-.loginBox__loginOption p {
+.socialMedia__loginOption p {
     padding-right: 19%;
 }
 
@@ -329,7 +353,6 @@ input {
 .next {
     right: 2.2%;
 }
-
 .carouselSlider {
     position: absolute;
     bottom: 3.1%;
@@ -344,13 +367,7 @@ input {
     background: var(--Ashtray);
     border-radius: 18px;
 }
-.carouselSlider__btn,
-.carouselSlider__btn1,
-.carouselSlider__btn2,
-.carouselSlider__btn3,
-.carouselSlider__btn4,
-.carouselSlider__btn5,
-.carouselSlider__btn6 {
+.carouselSlider__btn {
     padding: 0%;
     margin: 0%;
     border-radius: 100%;
@@ -361,4 +378,9 @@ input {
 
 .carouselSlider__btn--active {
     opacity: 1;
+}
+
+.loginBox__userEmail--error,
+.loginBox__passwordBox--error {
+    border: 2px solid var(--CoralReef);
 }

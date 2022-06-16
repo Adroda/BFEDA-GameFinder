@@ -14,7 +14,8 @@ const prevBtn = document.querySelector('.previous');
 const nextBtn = document.querySelector('.next');
 
 let counter = 1;
-const size = carouselImages[0].clientWidth;
+
+const size = document.querySelector('body').clientWidth;
 
 carouselSlide.style.transform = 'translateX(' + -size * counter + 'px)';
 
@@ -105,4 +106,4 @@ setInterval(() => {
             ].classList.add('carouselSlider__btn--active');
         }
     });
-}, 10000);
+}, 5000);

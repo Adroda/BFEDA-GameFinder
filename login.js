@@ -1,39 +1,38 @@
-/*fetch('http://localhost:3000/users')
-    .then((response) => response.json())
-    .then((users) => {
-        console.log('users');
-    });*/
-
-// LOGIN
-/*const login = () => {
-    window.location.replace('components/home/index.html');
-};*/
-//jwt_decode(response.accessToken)
-
 const loginBtn = document.getElementById('loginBtn');
+const mailInput = document.querySelector('.loginBox__userEmail');
+const passInput = document.querySelector('.passwordBox__userPassword');
+
+let userMail;
+let userPass;
+
+mailInput.addEventListener('input', () => {
+    userMail = mailInput.value;
+});
+passInput.addEventListener('input', () => {
+    userPass = passInput.value;
+});
 
 loginBtn.addEventListener('click', () => {
-    let user = { email: 'prueba@prueba.com', password: '123456' };
+    let user = { email: userMail, password: userPass };
     let parsedUser = JSON.stringify(user);
     fetch('http://localhost:3000/login', {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         body: parsedUser,
     })
-        .then((res) => console.log(res))
+        .then((res) => {
+            if (res.status === 200) {
+                window.location.replace('components/home/index.html');
+            } else {
+                document
+                    .querySelector('.loginBox__userEmail')
+                    .classList.add('loginBox__userEmail--error');
+                document
+                    .querySelector('.loginBox__passwordBox')
+                    .classList.add('loginBox__passwordBox--error');
+            }
+        }) //cuando me logeo no puedo apretar el boton de atras para volver a donde estaba
         .catch((err) => {
             throw err;
         });
 });
-
-//email y pass son la informacion q agarro de los input y la checkie,
-/*var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            // Typical action to be performed when the document is ready:
-            document.getElementById('demo').innerHTML = xhttp.responseText;
-        }
-    };
-    xhttp.open('POST', 'http://127.0.0.1:3000/login', true);
-    xhttp.send({ email: 'email@algo.com', password: 'password' });*/
-//window.location.replace('components/home/index.html');
