@@ -1,3 +1,10 @@
+const search = document.querySelector('.search__box');
+const searchUl = document.querySelector('.search__list');
+const cardList = document.querySelector('.cardList');
+const lastSearchesBtn = document.querySelector('.lastSearchesBtn');
+let dropdown = {};
+const lastSearches = [];
+
 const searchApi = async (value) => {
     const response = await fetch(
         `https://api.rawg.io/api/games?key=${API_KEY}&search=${value}`
@@ -5,13 +12,6 @@ const searchApi = async (value) => {
     var data = await response.json();
     return data;
 };
-
-const search = document.querySelector('.search__box');
-const searchUl = document.querySelector('.search__list');
-const cardList = document.querySelector('.cardList');
-const lastSearchesBtn = document.querySelector('.lastSearchesBtn');
-let dropdown = {};
-const lastSearches = [];
 
 const addLastSearches = (game) => {
     if (lastSearches.length === 2) {

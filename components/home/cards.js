@@ -29,9 +29,7 @@ const generateCard = (element) => {
     </div>
     <div class="card__item card__genres">
         <p class="genres__txt noMargin">Genres:</p>
-        <p class="genres__list noMargin">${generateGenres(
-            element.genres
-        )}</p> <!-- TODO tengo q ver como hacer esto y las imagenes-->
+        <p class="genres__list noMargin">${generateGenres(element.genres)}</p>
     </div>
     </div>`;
 };
@@ -47,7 +45,6 @@ const generateGenres = (genresList) => {
 
 const generatePlatforms = (platforms) => {
     let platformsList = '';
-    //console.log(platforms);
     platforms.forEach((element) => {
         switch (element.platform.name) {
             case 'PC':
@@ -84,7 +81,7 @@ const generatePlatforms = (platforms) => {
 
 const renderCards = async (api) => {
     const games = await api();
-    console.log(games.results);
+    //console.log(games.results);
     var card;
     games.results.forEach((element) => {
         card = generateCard(element);

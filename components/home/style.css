@@ -227,11 +227,11 @@ body {
 
 .sideBar {
     margin-left: 40px;
-    width: 15vw;
+    width: 12vw;
 }
 
 .sideBar__topItem {
-    margin: 7px 0px;
+    margin: 10px 0px;
     font-weight: 700;
     font-size: 20px;
     line-height: 27px;
@@ -260,7 +260,7 @@ body {
 
 .sideBar__item {
     height: 24px;
-    margin: 8.5px 0px;
+    margin: 17px 0px;
     display: flex;
     align-items: center;
 
@@ -284,7 +284,7 @@ body {
 }
 .cardList {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
     width: 84.5vw;
 }
 .cardList__card {
