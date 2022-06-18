@@ -17,8 +17,8 @@ html {
 
 html,
 * {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu,
-        'Helvetica Neue', Helvetica, sans-serif, 'Exo';
+    font-family: 'Exo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Ubuntu, 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 body {
@@ -79,6 +79,36 @@ body {
     margin-left: 14px;
     margin-right: 11px;
 }
+.search__list {
+    position: absolute;
+    padding: 0px 8px;
+    border-radius: 4px;
+
+    top: 90%;
+    left: 0%;
+    width: 96%;
+
+    list-style: none;
+    text-align: left;
+    background: var(--Snow);
+    color: var(--Shadow);
+    max-height: 0;
+}
+.search__list--open {
+    max-height: 353%;
+}
+
+.list__item {
+    padding: 10px 6px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    cursor: pointer;
+}
+.list__item:not(:last-child) {
+    border-bottom: 0.5px solid #e1e1e4;
+}
+
 .header__profile {
     display: flex;
 }
@@ -197,11 +227,11 @@ body {
 
 .sideBar {
     margin-left: 40px;
-    width: 15vw;
+    width: 12vw;
 }
 
 .sideBar__topItem {
-    margin: 7px 0px;
+    margin: 10px 0px;
     font-weight: 700;
     font-size: 20px;
     line-height: 27px;
@@ -230,7 +260,7 @@ body {
 
 .sideBar__item {
     height: 24px;
-    margin: 8.5px 0px;
+    margin: 17px 0px;
     display: flex;
     align-items: center;
 
@@ -240,6 +270,8 @@ body {
 }
 
 .sideBar__firstItem {
+    display: flex;
+    align-items: center;
     margin-top: 37px;
 }
 
@@ -252,7 +284,7 @@ body {
 }
 .cardList {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
     width: 84.5vw;
 }
 .cardList__card {
@@ -269,6 +301,7 @@ body {
 }
 .card__img {
     width: 100%;
+    height: 12rem;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
 }
@@ -341,6 +374,7 @@ body {
 .releaseDate__consoles {
     display: flex;
     width: 40%;
+    justify-content: flex-end;
 }
 .consoles__logo {
     margin-left: 16px;
@@ -367,16 +401,13 @@ body {
 }
 
 .genres__list {
-    left: 34.44%;
-    right: 4.41%;
-    top: 86.62%;
-    bottom: 5.73%;
-
+    width: 66%;
     font-weight: 400;
     font-size: 14px;
     line-height: 19px;
     display: flex;
     align-items: center;
+    text-align: left;
 
     color: var(--Snow);
 }
