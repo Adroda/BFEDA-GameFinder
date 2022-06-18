@@ -81,34 +81,34 @@ body {
 }
 .search__list {
     position: absolute;
-    padding: 0px;
+    padding: 0px 8px;
     border-radius: 4px;
 
     top: 90%;
     left: 0%;
-    width: 100%;
+    width: 96%;
 
     list-style: none;
     text-align: left;
     background: var(--Snow);
     color: var(--Shadow);
     max-height: 0;
-    overflow: hidden;
 }
 .search__list--open {
     max-height: 353%;
 }
-.search__list hr {
-    margin: 0px 8px;
-    border: 0.5px solid #e1e1e4;
-}
+
 .list__item {
-    padding: 10px 34px 10px 14px;
+    padding: 10px 6px;
     font-weight: 400;
     font-size: 15px;
     line-height: 20px;
     cursor: pointer;
 }
+.list__item:not(:last-child) {
+    border-bottom: 0.5px solid #e1e1e4;
+}
+
 .header__profile {
     display: flex;
 }
@@ -374,6 +374,7 @@ body {
 .releaseDate__consoles {
     display: flex;
     width: 40%;
+    justify-content: flex-end;
 }
 .consoles__logo {
     margin-left: 16px;

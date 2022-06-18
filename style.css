@@ -1,5 +1,5 @@
 :root {
-    --Snow: #fffafa;
+    --Snow: #ffffff;
     --MintCondition: #5fe19b;
     --Ashtray: #515151;
     --CoralReef: #fb5f5f;
@@ -38,6 +38,9 @@ input {
 input:focus {
     outline: none;
 }
+.hide {
+    display: none;
+}
 
 .logoBox {
     position: absolute;
@@ -45,6 +48,7 @@ input:focus {
     height: 66px;
     left: 39px;
     top: 30px;
+    z-index: 10;
 }
 .logo {
     position: absolute;
@@ -231,6 +235,7 @@ input:focus {
 
 .loginBox__lineBreak {
     margin-bottom: 29.29px;
+    opacity: 0.5;
 }
 .loginBox__register {
     justify-content: center;
@@ -275,7 +280,6 @@ input:focus {
     width: 67.12px;
 
     text-align: center;
-
     color: var(--Snow);
 }
 .loginBox__socialMedia {
@@ -348,6 +352,7 @@ input:focus {
     opacity: 0.8;
 }
 .previous {
+    z-index: 10;
     left: 2.2%;
 }
 .next {

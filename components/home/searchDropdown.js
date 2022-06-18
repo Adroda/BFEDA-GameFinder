@@ -13,43 +13,57 @@ const searchApi = async (value) => {
     return data;
 };
 
-const addLastSearches = (game) => {
+const addToLastSearches = (game) => {
     if (lastSearches.length === 2) {
         lastSearches.pop();
     }
     lastSearches.unshift(game);
 };
 
-search.addEventListener('input', async () => {
-    if (search.value !== '') {
-        //TODO preguntar aca como hago para q cuando borro muy rapido al final lo ponga en blanco igual
-        const searchProm = await searchApi(search.value);
-        const searchList = searchProm.results;
-        searchUl.innerHTML = '';
-        var listItem;
-        searchList.forEach((element) => {
-            listItem = `
-            <li class="list__item">${element.name}</li>
-            <hr />`;
-            document
-                .querySelector('.search__list')
-                .insertAdjacentHTML('beforeend', listItem);
-        });
-        dropdown = document.querySelectorAll('.list__item');
-        dropdown.forEach((element) => {
-            element.addEventListener('click', async () => {
-                const searchedGame = await searchApi(element.textContent);
-                addLastSearches(searchedGame.results[0]);
-                let card = generateCard(searchedGame.results[0]);
-                cardList.innerHTML = '';
-                cardList.insertAdjacentHTML('beforeend', card);
+const debounce = (fn, wait) => {
+    let timeout;
+
+    return (...args) => {
+        const later = () => {
+            clearTimeout(timeout);
+            fn(...args);
+        };
+
+        clearTimeout(timeout);
+
+        timeout = setTimeout(later, wait);
+    };
+};
+
+search.addEventListener(
+    'input',
+    debounce(async () => {
+        if (search.value !== '') {
+            const searchRes = await searchApi(search.value);
+            const searchList = searchRes.results;
+            searchUl.innerHTML = '';
+            var listItem;
+            searchList.slice(0, 4).forEach((element) => {
+                listItem = `<li class="list__item">${element.name}</li>`;
+                document
+                    .querySelector('.search__list')
+                    .insertAdjacentHTML('beforeend', listItem);
             });
-        });
-        //console.log(dropdown);
-    } else {
-        searchUl.innerHTML = '';
-    }
-});
+            dropdown = document.querySelectorAll('.list__item');
+            dropdown.forEach((element, index) => {
+                element.addEventListener('click', async () => {
+                    const searchedGame = await searchApi(element.textContent);
+                    addToLastSearches(searchedGame.results[0]);
+                    let card = generateCard(searchedGame.results[0], index);
+                    cardList.innerHTML = '';
+                    cardList.insertAdjacentHTML('beforeend', card);
+                });
+            });
+        } else {
+            searchUl.innerHTML = '';
+        }
+    }, 100)
+);
 
 search.addEventListener('keypress', async (event) => {
     if (event.key === 'Enter') {
@@ -58,9 +72,8 @@ search.addEventListener('keypress', async (event) => {
         var card;
         const games = await searchApi(search.value);
         addLastSearches(games.results[0]);
-        games.results.forEach((element) => {
-            //TODO las imagenes de los juegos son todas distintas me rompen todas las cards
-            card = generateCard(element);
+        games.results.forEach((element, index) => {
+            card = generateCard(element, index);
             cardList.insertAdjacentHTML('beforeend', card);
         });
     }
@@ -69,8 +82,8 @@ search.addEventListener('keypress', async (event) => {
 lastSearchesBtn.addEventListener('click', () => {
     cardList.innerHTML = '';
     var card;
-    lastSearches.forEach((element) => {
-        card = generateCard(element);
+    lastSearches.forEach((element, index) => {
+        card = generateCard(element, index);
         cardList.insertAdjacentHTML('beforeend', card);
     });
 });

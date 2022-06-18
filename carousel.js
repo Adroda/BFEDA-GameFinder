@@ -1,4 +1,4 @@
-// CAROUSEL
+// Carousel
 const carouselSlide = document.querySelector(
     '.carouselContainer__carouselSlide'
 );
@@ -55,6 +55,8 @@ prevBtn.addEventListener('click', () => {
     });
 });
 
+// Carousel Transition From last to first and first to last slides
+
 carouselSlide.addEventListener('transitionend', () => {
     if (carouselImages[counter].className === 'carouselSlide__lastClone') {
         carouselSlide.style.transition = 'none';
@@ -64,9 +66,10 @@ carouselSlide.addEventListener('transitionend', () => {
             'carouselSlider__btn--active'
         );
     }
+
     if (carouselImages[counter].className === 'carouselSlide__firstClone') {
         carouselSlide.style.transition = 'none';
-        counter = carouselImages.length - counter;
+        counter = 1;
         carouselSlide.style.transform = 'translateX(' + -size * counter + 'px)';
         Array.from(carouselBottomWrapper.children)[0].classList.add(
             'carouselSlider__btn--active'
@@ -74,7 +77,7 @@ carouselSlide.addEventListener('transitionend', () => {
     }
 });
 
-// Bottom Slider
+// Bottom Slider Dots
 
 carouselBottomWrapper.addEventListener('click', (event) => {
     const isButton = event.target.nodeName === 'BUTTON';
@@ -93,7 +96,10 @@ carouselBottomWrapper.addEventListener('click', (event) => {
     event.target.classList.add('carouselSlider__btn--active');
 });
 
+// Carousel Autoplay
+
 setInterval(() => {
+    if (counter >= carouselImages.length - 1) return;
     carouselSlide.style.transition = 'transform 0.7s ease-in-out';
     counter++;
     carouselSlide.style.transform = 'translateX(' + -size * counter + 'px)';
@@ -106,4 +112,4 @@ setInterval(() => {
             ].classList.add('carouselSlider__btn--active');
         }
     });
-}, 5000);
+}, 10000);
