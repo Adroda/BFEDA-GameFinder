@@ -2,6 +2,7 @@ const search = document.querySelector('.search__box');
 const searchUl = document.querySelector('.search__list');
 const cardList = document.querySelector('.cardList');
 const lastSearchesBtn = document.querySelector('.lastSearchesBtn');
+const overlay = document.querySelector('.overlay');
 let dropdown = {};
 const lastSearches = [];
 
@@ -57,6 +58,7 @@ search.addEventListener(
                     let card = generateCard(searchedGame.results[0], index);
                     cardList.innerHTML = '';
                     cardList.insertAdjacentHTML('beforeend', card);
+                    searchUl.classList.add('hide');
                 });
             });
         } else {
@@ -70,13 +72,27 @@ search.addEventListener('keypress', async (event) => {
         cardList.innerHTML = '';
         searchUl.innerHTML = '';
         var card;
+        console.log(search.value);
         const games = await searchApi(search.value);
-        addLastSearches(games.results[0]);
+        addToLastSearches(games.results[0]);
         games.results.forEach((element, index) => {
             card = generateCard(element, index);
             cardList.insertAdjacentHTML('beforeend', card);
         });
     }
+});
+
+search.addEventListener('focus', () => {
+    overlay.classList.remove('hide');
+    searchUl.classList.remove('hide');
+});
+
+search.addEventListener('blur', () => {
+    overlay.classList.add('hide');
+});
+
+overlay.addEventListener('click', () => {
+    searchUl.classList.add('hide');
 });
 
 lastSearchesBtn.addEventListener('click', () => {
