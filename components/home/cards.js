@@ -1,4 +1,7 @@
 const API_KEY = 'fc335efe7cd744c492fff282c4440209';
+const rowBtn = document.querySelector('.listStyleButtons__row');
+const columnBtn = document.querySelector('.listStyleButtons__column');
+let rowMode = true;
 
 const api = async () => {
     const response = await fetch(
@@ -9,27 +12,28 @@ const api = async () => {
 };
 
 const generateCard = (element, index) => {
-    return `<div class="cardList__card">
-    <img
-        class="card__img"
-        src="${element.background_image}"
-        alt=""
-    />
-    <h2 class="card__item card__info noMargin">
-        <span class="info__title">${element.name}</span>
-        <span class="info__number">#${index + 1}</span>
-    </h2>
-    <div class="card__item card__releaseDate">
-        <p class="releaseDate__txt noMargin">Release date:</p>
-        <p class="releaseDate__date noMargin">${element.released}</p>
-        <div class="releaseDate__consoles">${generatePlatforms(
-            element.parent_platforms
-        )}</div>
-    </div>
-    <div class="card__item card__genres">
-        <p class="genres__txt noMargin">Genres:</p>
-        <p class="genres__list noMargin">${generateGenres(element.genres)}</p>
-    </div>
+    return `<div class="cardListColumn__card">
+        <img
+            class="card__img"
+            src="${element.background_image}"
+            alt=""
+        />
+        <h2 class="card__item card__info noMargin">
+            <span class="info__title">${element.name}</span>
+            <span class="info__number">#${index + 1}</span>
+        </h2>
+        <div class="card__item card__releaseDate">
+            <p class="releaseDate__txt noMargin">Release date:</p>
+            <p class="releaseDate__date noMargin">${element.released}</p>
+            <p class="genres__txt noMargin">Genres:</p>
+            <p class="genres__list noMargin">${generateGenres(
+                element.genres
+            )}</p>
+            <div class="releaseDate__consoles">${generatePlatforms(
+                element.parent_platforms
+            )}
+            </div>
+        </div>
     </div>`;
 };
 
@@ -84,8 +88,52 @@ const renderCards = async (api) => {
     games.results.forEach((element, index) => {
         card = generateCard(element, index);
         document
-            .querySelector('.cardList')
+            .querySelector('.cardListColumn')
             .insertAdjacentHTML('beforeend', card);
     });
 };
 renderCards(api);
+
+columnBtn.addEventListener('click', () => {
+    if (rowMode) {
+        columnBtn.classList.toggle('listStyleButtons--off');
+        columnBtn.classList.toggle('listStyleButtons--on');
+        rowBtn.classList.toggle('listStyleButtons--on');
+        rowBtn.classList.toggle('listStyleButtons--off');
+        rowMode = !rowMode;
+    }
+});
+rowBtn.addEventListener('click', () => {
+    if (!rowMode) {
+        rowBtn.classList.toggle('listStyleButtons--off');
+        rowBtn.classList.toggle('listStyleButtons--on');
+        columnBtn.classList.toggle('listStyleButtons--on');
+        columnBtn.classList.toggle('listStyleButtons--off');
+        rowMode = !rowMode;
+    }
+});
+
+/*const generateCard = (element, index) => {
+    return `<div class="cardListColumn__card">
+    <img
+        class="card__img"
+        src="${element.background_image}"
+        alt=""
+    />
+    <h2 class="card__item card__info noMargin">
+        <span class="info__title">${element.name}</span>
+        <span class="info__number">#${index + 1}</span>
+    </h2>
+    <div class="card__item card__releaseDate">
+        <p class="releaseDate__txt noMargin">Release date:</p>
+        <p class="releaseDate__date noMargin">${element.released}</p>
+        <div class="releaseDate__consoles">${generatePlatforms(
+            element.parent_platforms
+        )}</div>
+    </div>
+    <div class="card__item card__genres">
+        <p class="genres__txt noMargin">Genres:</p>
+        <p class="genres__list noMargin">${generateGenres(element.genres)}</p>
+    </div>
+    </div>`;
+};*/

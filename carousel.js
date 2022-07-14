@@ -112,4 +112,4 @@ setInterval(() => {
             ].classList.add('carouselSlider__btn--active');
         }
     });
-}, 10000);
+}, 6000);

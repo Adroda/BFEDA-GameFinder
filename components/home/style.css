@@ -219,10 +219,14 @@ body {
     border-radius: 10px;
     border: none;
 }
-.listStyleButtons__row {
+.listStyleButtons--on {
     background: var(--Ashtray);
 }
-.listStyleButtons__column {
+.listStyleButtons--on path {
+    fill: white;
+}
+
+.listStyleButtons--off {
     background: var(--Charcoal);
 }
 
@@ -283,26 +287,44 @@ body {
 .mainBody {
     display: flex;
 }
-.cardList {
+.cardListRow {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 84.5vw;
 }
-.cardList__card {
+.cardListRow__card {
     left: 0%;
     right: 0%;
     top: 0%;
     bottom: 0%;
-    width: 90%;
+    width: 120%;
     height: 90%;
     margin: 20px;
 
     background-color: var(--Charcoal);
     border-radius: 12px;
 }
+.cardListColumn {
+    display: flex;
+    flex-direction: column;
+    margin: 0 17.5%;
+    width: 48.41%;
+}
+.cardListColumn__card {
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    width: 100%;
+    height: 33.63rem;
+    margin: 2.02% 0;
+
+    background-color: var(--Charcoal);
+    border-radius: 12px;
+}
 .card__img {
     width: 100%;
-    height: 12rem;
+    height: 58.55%;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
 }
@@ -310,9 +332,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.noMargin {
-    margin: 0%;
 }
 .card__info {
     padding: 16px;
@@ -343,12 +362,8 @@ body {
 .card__releaseDate {
     margin: 0px 16px 4px 16px;
 }
-.card__releaseDate_txt {
-    left: 4.41%;
-    right: 57.85%;
-    top: 77.71%;
-    bottom: 14.65%;
-
+.releaseDate__txt {
+    width: 20%;
     font-weight: 500;
     font-size: 14px;
     line-height: 19px;
@@ -358,11 +373,7 @@ body {
     color: var(--Fossil);
 }
 .releaseDate__date {
-    left: 34.44%;
-    right: 27.82%;
-    top: 77.71%;
-    bottom: 14.65%;
-
+    width: 20%;
     font-weight: 400;
     font-size: 14px;
     line-height: 19px;
@@ -384,14 +395,11 @@ body {
     justify-content: right;
 }
 .card__genres {
+    width: 25%;
     margin: 0px 16px 18px 16px;
 }
 .genres__txt {
-    left: 4.41%;
-    right: 57.85%;
-    top: 86.62%;
-    bottom: 5.73%;
-
+    width: 25%;
     font-weight: 500;
     font-size: 14px;
     line-height: 19px;
@@ -402,7 +410,7 @@ body {
 }
 
 .genres__list {
-    width: 66%;
+    width: 25;
     font-weight: 400;
     font-size: 14px;
     line-height: 19px;
@@ -425,4 +433,8 @@ body {
 
 .hide {
     display: none;
+}
+
+.noMargin {
+    margin: 0%;
 }
