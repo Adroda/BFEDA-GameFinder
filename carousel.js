@@ -15,7 +15,7 @@ const nextBtn = document.querySelector('.next');
 
 let counter = 1;
 
-const size = document.querySelector('body').clientWidth;
+let size = document.querySelector('body').clientWidth;
 
 carouselSlide.style.transform = 'translateX(' + -size * counter + 'px)';
 
@@ -113,3 +113,5 @@ setInterval(() => {
         }
     });
 }, 6000);
+
+window.addEventListener('resize', () => console.log('cambio la cosa')); //cambiar el tamaño del size aca adentro

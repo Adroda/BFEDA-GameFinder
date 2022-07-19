@@ -58,7 +58,7 @@ loginBtn.addEventListener('click', () => {
                     iconPath.style.fill = '#fb5f5f';
                 });
             }
-        }) //cuando me logeo no puedo apretar el boton de atras para volver a donde estaba
+        }) //TODO cuando me logeo no puedo apretar el boton de atras para volver a donde estaba
         .catch((err) => {
             throw err;
         });

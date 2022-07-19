@@ -389,3 +389,11 @@ input:focus {
 .loginBox__passwordBox--error {
     border: 2px solid var(--CoralReef);
 }
+
+@media only screen and (max-width: 1200px) {
+    .logoBox {
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+    }
+}

@@ -1,6 +1,6 @@
 const search = document.querySelector('.search__box');
 const searchUl = document.querySelector('.search__list');
-const cardList = document.querySelector('.cardList');
+const search__list = document.querySelector('.search__list');
 const lastSearchesBtn = document.querySelector('.lastSearchesBtn');
 const overlay = document.querySelector('.overlay');
 let dropdown = {};
@@ -46,9 +46,7 @@ search.addEventListener(
             var listItem;
             searchList.slice(0, 4).forEach((element) => {
                 listItem = `<li class="list__item">${element.name}</li>`;
-                document
-                    .querySelector('.search__list')
-                    .insertAdjacentHTML('beforeend', listItem);
+                search__list.insertAdjacentHTML('beforeend', listItem);
             });
             dropdown = document.querySelectorAll('.list__item');
             dropdown.forEach((element, index) => {
@@ -72,7 +70,6 @@ search.addEventListener('keypress', async (event) => {
         cardList.innerHTML = '';
         searchUl.innerHTML = '';
         var card;
-        console.log(search.value);
         const games = await searchApi(search.value);
         addToLastSearches(games.results[0]);
         games.results.forEach((element, index) => {
@@ -89,6 +86,7 @@ search.addEventListener('focus', () => {
 
 search.addEventListener('blur', () => {
     overlay.classList.add('hide');
+    searchUl.classList.add('hide');
 });
 
 overlay.addEventListener('click', () => {
