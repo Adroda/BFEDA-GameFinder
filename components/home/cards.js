@@ -1,17 +1,23 @@
 const API_KEY = 'fc335efe7cd744c492fff282c4440209';
+
 const rowBtn = document.querySelector('.listStyleButtons__row');
 const columnBtn = document.querySelector('.listStyleButtons__column');
 let rowMode = true;
+
 let cardList = document.querySelector('.cardList');
+
 const insertImg = document.querySelector('.insertImg');
 const modal = document.querySelector('.modal');
-const overlay = document.querySelector('.overlay2');
+const overlayModal = document.querySelector('.overlay2');
 const modalCross = document.querySelector('.modal__close');
 let modalOn = false;
 
+let gamePage = 1;
+const fullScrollLength = 2104;
+
 const api = async () => {
     const response = await fetch(
-        `https://api.rawg.io/api/games?key=${API_KEY}`
+        `https://api.rawg.io/api/games?key=${API_KEY}&page=${gamePage}`
     );
     var data = await response.json();
     return data;
@@ -43,7 +49,9 @@ const generateCard = async (element, index) => {
             />
             <h2 class="card__item card__info noMargin">
                 <span class="info__title">${element.name}</span>
-                <span class="info__number">#${index + 1}</span>
+                <span class="info__number">#${
+                    20 * (gamePage - 1) + index + 1
+                }</span>
             </h2>
             <div class="card__item card__releaseDate">
                 <p class="releaseDate__txt noMargin">Release date:</p>
@@ -71,7 +79,9 @@ const generateCard = async (element, index) => {
         />
         <h2 class="card__item card__info noMargin">
             <span class="info__title">${element.name}</span>
-            <span class="info__number">#${index + 1}</span>
+            <span class="info__number">#${
+                20 * (gamePage - 1) + index + 1
+            }</span>
         </h2>
         <div class="card__item card__releaseDate">
             <p class="releaseDate__txt noMargin">Release date:</p>
@@ -161,12 +171,11 @@ const closeModal = () => {
     insertImg.innerHTML = '';
     modal.innerHTML = '';
     modal.classList.toggle('hide');
-    overlay.classList.toggle('hide');
+    overlayModal.classList.toggle('hide');
     modalOn = false;
 };
 const openModal = async (game) => {
-    console.log(game);
-    //TODO arreglar el scroll, que no se pueda clickear nada atras del overlay, y q el website no se vaya tanto para la derecha
+    //TODO arreglar el scroll, que no se pueda clickear nada atras del overlay, y q el website no se vaya tanto para la derecha, las chips no tienen los stilos ni la info bien kinda
     let promiseGame = await apiById(game.id);
     let desc = promiseGame.description_raw;
     let publisher = promiseGame.publishers[0].name;
@@ -405,7 +414,7 @@ const openModal = async (game) => {
     </div>`;
     modal.insertAdjacentHTML('beforeend', modalBody);
     modal.classList.toggle('hide');
-    overlay.classList.toggle('hide');
+    overlayModal.classList.toggle('hide');
 };
 
 const renderCards = async (api) => {
@@ -450,6 +459,16 @@ rowBtn.addEventListener('click', () => {
         cardList.classList.toggle('cardList--Column');
         cardList.classList.toggle('cardList--Row');
         cardList.innerHTML = '';
+        renderCards(api);
+    }
+});
+
+cardList.addEventListener('scroll', () => {
+    if (
+        cardList.scrollTop >=
+        fullScrollLength * gamePage - (fullScrollLength * 20) / 100
+    ) {
+        gamePage++;
         renderCards(api);
     }
 });

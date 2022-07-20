@@ -13,6 +13,14 @@ const searchApi = async (value) => {
     var data = await response.json();
     return data;
 };
+const platformApi = async (id) => {
+    const response = await fetch(
+        `https://api.rawg.io/api/games?key=${API_KEY}&parent_platforms=${id}`
+    );
+    var data = await response.json();
+    console.log(data.results);
+    return data;
+};
 
 const addToLastSearches = (game) => {
     if (lastSearches.length === 2) {
@@ -69,11 +77,24 @@ search.addEventListener('keypress', async (event) => {
     if (event.key === 'Enter') {
         cardList.innerHTML = '';
         searchUl.innerHTML = '';
-        var card;
-        const games = await searchApi(search.value);
+        let card;
+        let games;
+        gamePage = 1;
+        if (search.value.toLowerCase() === 'pc') {
+            games = await platformApi(1);
+        } else if (search.value.toLowerCase() === 'playstation') {
+            games = await platformApi(2);
+        } else if (search.value.toLowerCase() === 'xbox') {
+            games = await platformApi(3);
+        } else if (search.value.toLowerCase() === 'nintendo') {
+            games = await platformApi(7);
+        } else {
+            games = await searchApi(search.value);
+        }
+        console.log(games.results);
         addToLastSearches(games.results[0]);
-        games.results.forEach((element, index) => {
-            card = generateCard(element, index);
+        games.results.forEach(async (element, index) => {
+            card = await generateCard(element, index);
             cardList.insertAdjacentHTML('beforeend', card);
         });
     }
