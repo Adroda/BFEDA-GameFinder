@@ -1,10 +1,16 @@
 :root {
-    --Snow: #ffffff;
+    --mainBg: #141414;
+    --charColor: #ffffff;
+    --cardColor: #303030;
+    --drkBtnBg: #5f81fb;
+    --platformColor: #ffffff;
+    --listStyleOnBg: #515151;
+    --listStyleOffBg: #303030;
     --Shadow: #141414;
+    --Snow: #ffffff;
     --MintCondition: #5fe19b;
     --SoJaded: #36b972;
     --KateMoss: #0ea152;
-    --ColorIris: #5f81fb;
     --Ashtray: #515151;
     --Charcoal: #303030;
     --Fossil: #939393;
@@ -29,8 +35,8 @@ body {
     width: 100%;
     max-height: 1024px;
     margin: 0;
-    color: var(--Snow);
-    background-color: var(--Shadow);
+    color: var(--charColor);
+    background-color: var(--mainBg);
     font: 'Exo';
     font-style: normal;
     overflow: hidden;
@@ -171,8 +177,6 @@ button {
 .darkmode__txt {
     width: 86px;
     height: 39px;
-    left: 1257px;
-    top: 113px;
 
     font-weight: 400;
     font-size: 15px;
@@ -182,6 +186,7 @@ button {
     text-align: right;
 }
 .darkmode__buttonContainer {
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -194,21 +199,22 @@ button {
     font-size: 9px;
     font-weight: 600;
     text-align: left;
-
-    background: var(--ColorIris);
+    background-color: var(--drkBtnBg);
     border-radius: 23px;
 }
 .darkmode__button {
-    left: 52.27%;
-    right: 6.82%;
-    top: 9.09%;
-    bottom: 9.09%;
+    position: absolute;
+    right: 2px;
+
     border: none;
     border-radius: 40px;
     height: 18px;
     width: 18px;
 
     background: var(--Snow);
+}
+.darkmode__off {
+    color: var(--Fossil);
 }
 .topContainer__listStyleButtons {
     display: flex;
@@ -229,14 +235,14 @@ button {
     border: none;
 }
 .listStyleButtons--on {
-    background: var(--Ashtray);
+    background: var(--listStyleOnBg);
 }
 .listStyleButtons--on path {
     fill: white;
 }
 
 .listStyleButtons--off {
-    background: var(--Charcoal);
+    background: var(--listStyleOffBg);
 }
 
 .sideBar {
@@ -310,7 +316,7 @@ button {
     height: 70%;
     margin: 24px;
 
-    background-color: var(--Charcoal);
+    background-color: var(--cardColor);
     border-radius: 12px;
 }
 .cardList--Column {
@@ -324,7 +330,7 @@ button {
     height: 33.63rem;
     margin: 2.02% 0;
 
-    background-color: var(--Charcoal);
+    background-color: var(--cardColor);
     border-radius: 12px;
 }
 .card__img {
@@ -396,8 +402,6 @@ button {
     line-height: 19px;
     display: flex;
     align-items: center;
-
-    color: var(--Snow);
 }
 
 .cardList--Column__card .releaseDate__date {
@@ -407,8 +411,6 @@ button {
     line-height: 19px;
     display: flex;
     align-items: center;
-
-    color: var(--Snow);
 }
 
 .releaseDate__consoles {
@@ -461,8 +463,6 @@ button {
     display: flex;
     align-items: center;
     text-align: left;
-
-    color: var(--Snow);
 }
 
 .cardList--Column__card .genres__list {
@@ -473,8 +473,6 @@ button {
     display: flex;
     align-items: center;
     text-align: left;
-
-    color: var(--Snow);
 }
 
 .card__desc {
@@ -513,8 +511,8 @@ button {
     border-radius: 24px;
     background-image: linear-gradient(
         to top,
-        var(--Charcoal) 0%,
-        var(--Charcoal) 40%,
+        var(--cardColor) 0%,
+        var(--cardColor) 30%,
         rgba(48, 48, 48, 0.5) 100%
     );
     z-index: 3;
@@ -555,6 +553,7 @@ button {
     margin-right: 1.5rem;
 }
 .body__title {
+    color: var(--Snow);
     font-weight: 800;
     font-size: 48px;
     line-height: 64px;
@@ -674,4 +673,10 @@ button {
 
 .body__info {
     display: flex;
+}
+.platformLogoCard {
+    fill: var(--platformColor);
+}
+.platformLogoModal {
+    fill: var(--Snow);
 }

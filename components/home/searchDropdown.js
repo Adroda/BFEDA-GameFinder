@@ -116,7 +116,7 @@ overlay.addEventListener('click', () => {
 
 lastSearchesBtn.addEventListener('click', () => {
     cardList.innerHTML = '';
-    var card;
+    let card;
     lastSearches.forEach((element, index) => {
         card = generateCard(element, index);
         cardList.insertAdjacentHTML('beforeend', card);

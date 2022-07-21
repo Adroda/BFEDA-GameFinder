@@ -101,11 +101,14 @@
                 <div>
                     <div class="topContainer__darkmode">
                         <p class="darkmode__txt">Dark Mode</p>
-                        <div class="darkmode__buttonContainer">
-                            <div>ON</div>
+                        <div
+                            class="darkmode__buttonContainer"
+                            id="darkmodeButton"
+                        >
+                            <div class="darkmode__on">ON</div>
                             <button class="darkmode__button"></button>
+                            <div class="darkmode__off">OFF</div>
                         </div>
-                        <!--TODO fix the ON on this button-->
                     </div>
                     <div class="topContainer__listStyleButtons">
                         <button
@@ -259,8 +262,8 @@
             </div>
         </main>
 
-        <script type="text/javascript" src="main.js"></script>
         <script type="text/javascript" src="cards.js"></script>
         <script type="text/javascript" src="searchDropdown.js"></script>
+        <script type="text/javascript" src="darkMode.js"></script>
     </body>
 </html>
