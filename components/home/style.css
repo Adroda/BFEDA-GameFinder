@@ -1,756 +1,767 @@
 :root {
-    --mainBg: #141414;
-    --charColor: #ffffff;
-    --cardColor: #303030;
-    --drkBtnBg: #5f81fb;
-    --platformColor: #ffffff;
-    --listStyleOnBg: #515151;
-    --listStyleOffBg: #303030;
-    --Shadow: #141414;
-    --Snow: #ffffff;
-    --MintCondition: #5fe19b;
-    --SoJaded: #36b972;
-    --KateMoss: #0ea152;
-    --Ashtray: #515151;
-    --Charcoal: #303030;
-    --Fossil: #939393;
+  --mainBg: #141414;
+  --charColor: #ffffff;
+  --cardColor: #303030;
+  --drkBtnBg: #5f81fb;
+  --platformColor: #ffffff;
+  --listStyleOnBg: #515151;
+  --listStyleOffBg: #303030;
+  --Shadow: #141414;
+  --Snow: #ffffff;
+  --MintCondition: #5fe19b;
+  --SoJaded: #36b972;
+  --KateMoss: #0ea152;
+  --Ashtray: #515151;
+  --Charcoal: #303030;
+  --Fossil: #939393;
 }
 
 html {
-    line-height: 1.2;
-    -webkit-text-size-adjust: 100%;
+  line-height: 1.2;
+  -webkit-text-size-adjust: 100%;
 }
 
 html,
 * {
-    font-family: 'Exo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-        Ubuntu, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: "Exo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    min-width: 100vw;
-    min-height: 100vh;
-    width: 100%;
-    max-height: 1024px;
-    margin: 0;
-    color: var(--charColor);
-    background-color: var(--mainBg);
-    font: 'Exo';
-    font-style: normal;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: 100%;
+  max-height: 1024px;
+  margin: 0;
+  color: var(--charColor);
+  background-color: var(--mainBg);
+  font: "Exo";
+  font-style: normal;
+  overflow: hidden;
 }
 main {
-    max-width: 1440;
-    margin: 0 auto;
+  max-width: 1440;
+  margin: 0 auto;
 }
 button {
-    border: none;
+  border: none;
 }
 .header {
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 90.82%;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 90.82%;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    background: linear-gradient(
-        180deg,
-        var(--MintCondition) 0%,
-        var(--SoJaded) 50%,
-        var(--KateMoss) 100%
-    );
-    box-shadow: 1px -3px 36px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(
+    180deg,
+    var(--MintCondition) 0%,
+    var(--SoJaded) 50%,
+    var(--KateMoss) 100%
+  );
+  box-shadow: 1px -3px 36px rgba(0, 0, 0, 0.5);
 }
 .header__logo {
-    width: 18.5vw;
+  width: 18.5vw;
 }
 .header__search {
-    position: relative;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
-    width: 25.1vw;
-    height: 4.6vh;
-    display: flex;
-    align-items: center;
+  position: relative;
+  width: 22.625rem;
+  height: 4.6vh;
+  display: flex;
+  align-items: center;
 
-    background: var(--Snow);
-    border-radius: 4px;
-    z-index: 2;
+  background: var(--Snow);
+  border-radius: 4px;
+  z-index: 2;
 }
 .search__box {
-    height: 100%;
-    width: 100%;
-    border: none;
-    outline: none;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
 }
 .search__magnifyingglass {
-    margin-left: 14px;
-    margin-right: 11px;
+  margin-left: 14px;
+  margin-right: 11px;
 }
 .search__list {
-    position: absolute;
-    padding: 0px 8px;
-    border-radius: 4px;
+  position: absolute;
+  padding: 0px 8px;
+  border-radius: 4px;
 
-    top: 90%;
-    left: 0%;
-    width: 96%;
+  top: 90%;
+  left: 0%;
+  width: 96%;
 
-    list-style: none;
-    text-align: left;
-    background: var(--Snow);
-    color: var(--Shadow);
-    max-height: 0;
+  list-style: none;
+  text-align: left;
+  background: var(--Snow);
+  color: var(--Shadow);
+  max-height: 0;
 }
 .search__list--open {
-    max-height: 353%;
-    z-index: 100;
+  max-height: 353%;
+  z-index: 100;
 }
 
 .list__item {
-    padding: 10px 6px;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 20px;
-    cursor: pointer;
+  padding: 10px 6px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  cursor: pointer;
 }
 .list__item:not(:last-child) {
-    border-bottom: 0.5px solid #e1e1e4;
+  border-bottom: 0.5px solid #e1e1e4;
 }
 
 .header__profile {
-    display: flex;
+  display: flex;
 }
 .profile__logout {
-    margin-right: 16px;
-    background-color: transparent;
-    border-style: none;
+  margin-right: 16px;
+  background-color: transparent;
+  border-style: none;
 
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 20px;
-    display: flex;
-    align-items: center;
-    text-align: right;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: right;
 }
 
 .profile__avatar {
-    margin-right: 40px;
+  margin-right: 40px;
 }
 
 .topContainer {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 5rem;
-    padding-left: 2.5rem;
-    margin-right: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5rem;
+  padding-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 .topContainer__main {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 
-    font-weight: 800;
-    font-size: 48px;
-    line-height: 64px;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 64px;
 }
 .topContainer__subtitle {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
 .topContainer__darkmode {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 7px;
 }
 
 .darkmode__txt {
-    width: 86px;
-    height: 39px;
+  width: 86px;
+  height: 39px;
 
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 20px;
-    display: flex;
-    align-items: center;
-    text-align: right;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: right;
 }
 .darkmode__buttonContainer {
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
-    width: 44px;
-    height: 22px;
-    font-size: 9px;
-    font-weight: 600;
-    text-align: left;
-    background-color: var(--drkBtnBg);
-    border-radius: 23px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  width: 44px;
+  height: 22px;
+  font-size: 9px;
+  font-weight: 600;
+  text-align: left;
+  background-color: var(--drkBtnBg);
+  border-radius: 23px;
 }
 .darkmode__button {
-    position: absolute;
-    right: 2px;
+  position: absolute;
+  right: 2px;
 
-    border: none;
-    border-radius: 40px;
-    height: 18px;
-    width: 18px;
+  border: none;
+  border-radius: 40px;
+  height: 18px;
+  width: 18px;
 
-    background: var(--Snow);
+  background: var(--Snow);
 }
 .darkmode__off {
-    color: var(--Fossil);
+  color: var(--Fossil);
 }
 .topContainer__listStyleButtons {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
 }
 
 .listStyleButtons__row,
 .listStyleButtons__column {
-    height: 40px;
-    width: 40px;
+  height: 40px;
+  width: 40px;
 
-    border-radius: 10px;
-    border: none;
+  border-radius: 10px;
+  border: none;
 }
 .listStyleButtons--on {
-    background: var(--listStyleOnBg);
+  background: var(--listStyleOnBg);
 }
 .listStyleButtons--on path {
-    fill: white;
+  fill: white;
 }
 
 .listStyleButtons--off {
-    background: var(--listStyleOffBg);
+  background: var(--listStyleOffBg);
 }
 
 .sideBar {
-    margin-left: 40px;
-    width: 12vw;
+  margin-left: 40px;
+  width: 12vw;
 }
 
 .sideBar__topItem {
-    margin: 10px 0px;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 27px;
+  margin: 10px 0px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
 }
 
 .sideBar__home {
-    height: 27px;
-    left: 2.78%;
-    right: 93.4%;
-    top: calc(50% - 27px / 2 - 263.5px);
+  height: 27px;
+  left: 2.78%;
+  right: 93.4%;
+  top: calc(50% - 27px / 2 - 263.5px);
 
-    color: var(--MintCondition);
+  color: var(--MintCondition);
 }
 
 .sideBar__popularHeader {
-    height: 29px;
-    left: 2.78%;
-    right: 91.6%;
-    top: calc(50% - 29px / 2 + 44.5px);
-    margin: 55px 0px 18px 0px;
+  height: 29px;
+  left: 2.78%;
+  right: 91.6%;
+  top: calc(50% - 29px / 2 + 44.5px);
+  margin: 55px 0px 18px 0px;
 
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 29px;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 29px;
 }
 
 .sideBar__item {
-    height: 24px;
-    margin: 17px 0px;
-    display: flex;
-    align-items: center;
+  height: 24px;
+  margin: 17px 0px;
+  display: flex;
+  align-items: center;
 
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .sideBar__firstItem {
-    display: flex;
-    align-items: center;
-    margin-top: 37px;
+  display: flex;
+  align-items: center;
+  margin-top: 37px;
 }
 
 .sideBar__logo {
-    margin-right: 10.79px;
-    height: 80%;
+  margin-right: 10.79px;
+  height: 80%;
 }
 .mainBody {
-    display: flex;
+  display: flex;
 }
 .cardList {
-    overflow-y: scroll;
-    height: 50rem;
+  overflow-y: scroll;
+  height: 50rem;
 }
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 .cardList--Row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  padding: 24px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 314px;
+  gap: 24px;
 }
 .cardList--Row__card {
-    width: 21.938rem;
-    height: 70%;
-    margin: 24px;
+  width: 21.938rem;
+  height: 100%;
 
-    background-color: var(--cardColor);
-    border-radius: 12px;
+  background-color: var(--cardColor);
+  border-radius: 12px;
 }
 .cardList--Column {
-    display: flex;
-    flex-direction: column;
-    margin: 0 17.5%;
-    width: 48.41%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 17.5%;
+  width: 48.41%;
 }
 .cardList--Column__card {
-    width: 100%;
-    height: 33.63rem;
-    margin: 2.02% 0;
+  width: 100%;
+  height: 33.63rem;
+  margin: 2.02% 0;
 
-    background-color: var(--cardColor);
-    border-radius: 12px;
+  background-color: var(--cardColor);
+  border-radius: 12px;
 }
 .card__img {
-    width: 100%;
-    height: 58.55%;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+  width: 100%;
+  height: 11.188rem;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
+.cardList--Row__card .card__img {
+  height: 11.188rem;
+}
+.cardList--Column__card .card__img {
+  height: 19.688rem;
+}
+
 .card__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .card__info {
-    padding: 16px;
+  padding: 16px;
 }
 .cardList--Row__card .info__title {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 32px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
 }
 .cardList--Row__card .info__number {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 24px;
-    text-align: right;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: right;
 
-    color: var(--SoJaded);
+  color: var(--SoJaded);
 }
 
 .cardList--Column__card .info__number {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 24px;
-    text-align: right;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: right;
 
-    color: var(--SoJaded);
+  color: var(--SoJaded);
 }
 
 .card__releaseDate {
-    margin: 0px 16px 4px 16px;
+  margin: 0px 16px 4px 16px;
 }
 .cardList--Row__card .releaseDate__txt {
-    width: 35%;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
+  width: 35%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
 
-    color: var(--Fossil);
+  color: var(--Fossil);
 }
 
 .cardList--Column__card .releaseDate__txt {
-    width: 20%;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
+  width: 20%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
 
-    color: var(--Fossil);
+  color: var(--Fossil);
 }
 
 .cardList--Row__card .releaseDate__date {
-    width: 30%;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
+  width: 30%;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
 }
 
 .cardList--Column__card .releaseDate__date {
-    width: 20%;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
+  width: 20%;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
 }
 
 .releaseDate__consoles {
-    display: flex;
-    width: 40%;
-    justify-content: flex-end;
+  display: flex;
+  width: 40%;
+  justify-content: flex-end;
 }
 .releaseDate__consoles svg {
-    margin-left: 16px;
-    width: 20px;
-    height: 20px;
-    justify-content: right;
+  margin-left: 16px;
+  width: 20px;
+  height: 20px;
+  justify-content: right;
 }
 .cardList--Row__card .card__genres {
-    width: 60%;
-    margin: 0px 16px 18px 16px;
+  width: 60%;
+  margin: 0px 16px 18px 16px;
 }
 
 .cardList--Column__card .card__genres {
-    width: 25%;
-    margin: 0px 16px 18px 16px;
+  width: 25%;
+  margin: 0px 16px 18px 16px;
 }
 .cardList--Row__card .genres__txt {
-    width: 60%;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
+  width: 60%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
 
-    color: var(--Fossil);
+  color: var(--Fossil);
 }
 
 .cardList--Column__card .genres__txt {
-    width: 13%;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
+  width: 13%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
 
-    color: var(--Fossil);
+  color: var(--Fossil);
 }
 
 .cardList--Row__card .genres__list {
-    width: 130%;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
-    text-align: left;
+  width: 130%;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: left;
 }
 
 .cardList--Column__card .genres__list {
-    width: 50%;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
-    text-align: left;
+  width: 50%;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: left;
 }
 
 .card__desc {
-    height: 19%;
-    margin: 2.6% 2.5% 2.6% 2.5%;
-    font-size: 14px;
-    overflow: hidden;
+  height: 19%;
+  margin: 2.6% 2.5% 2.6% 2.5%;
+  font-size: 14px;
+  overflow: hidden;
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
 }
 .overlay2 {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 3;
 }
 .modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 67.25rem;
-    height: 49.56rem;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 67.25rem;
+  height: 49.56rem;
+  transform: translate(-50%, -50%);
 
-    border-radius: 24px;
-    background-image: linear-gradient(
-        to top,
-        var(--cardColor) 0%,
-        var(--cardColor) 30%,
-        rgba(48, 48, 48, 0.5) 100%
-    );
-    z-index: 3;
+  border-radius: 24px;
+  background-image: linear-gradient(
+    to top,
+    var(--cardColor) 0%,
+    var(--cardColor) 30%,
+    rgba(48, 48, 48, 0.5) 100%
+  );
+  z-index: 3;
 }
 .insertImg {
-    z-index: 2;
+  z-index: 2;
 }
 .imgModal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 67.23rem;
-    height: 49.56rem;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 67.23rem;
+  height: 49.56rem;
+  transform: translate(-50%, -50%);
 
-    border-radius: 24px;
-    z-index: 2;
+  border-radius: 24px;
+  z-index: 2;
 }
 .modal__close {
-    position: absolute;
-    right: 0rem;
-    padding: 0;
-    margin: 2.13rem 2.13rem;
-    border: none;
-    background: transparent;
+  position: absolute;
+  right: 0rem;
+  padding: 0;
+  margin: 2.13rem 2.13rem;
+  border: none;
+  background: transparent;
 }
 .modal__body {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    margin: 2.87rem 2rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 2.87rem 2rem;
 }
 .body__logos svg {
-    height: 2rem;
-    width: 2rem;
-    margin-right: 1.5rem;
+  height: 2rem;
+  width: 2rem;
+  margin-right: 1.5rem;
 }
 .body__title {
-    color: var(--Snow);
-    font-weight: 800;
-    font-size: 48px;
-    line-height: 64px;
-    margin-top: 1rem;
-    margin-bottom: 0.56rem;
+  color: var(--Snow);
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 64px;
+  margin-top: 1rem;
+  margin-bottom: 0.56rem;
 }
 .body__chips {
-    display: flex;
+  display: flex;
 }
 .chips__round {
-    padding: 0.25rem 0.81rem;
-    border-radius: 62px;
-    border: none;
-    margin-right: 0.5rem;
+  padding: 0.25rem 0.81rem;
+  border-radius: 62px;
+  border: none;
+  margin-right: 0.5rem;
 
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 21px;
-    display: flex;
-    align-items: center;
-    text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 
-    color: var(--Ashtray);
+  color: var(--Ashtray);
 }
 .info__first {
-    width: 37.68rem;
-    margin-right: 1.06rem;
-    margin-bottom: 0.93rem;
+  width: 37.68rem;
+  margin-right: 1.06rem;
+  margin-bottom: 0.93rem;
 }
 .first__description {
-    height: 4.9rem;
-    overflow-y: scroll;
+  height: 4.9rem;
+  overflow-y: scroll;
 }
 .first__buttons {
-    display: flex;
+  display: flex;
 }
 .buttons__wishlist {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1.5rem;
-    margin-bottom: 1.5rem;
-    width: 14.25rem;
-    height: 2.93rem;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 24px;
-    background: var(--MintCondition);
-    border-radius: 6px;
-    color: var(--Snow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 14.25rem;
+  height: 2.93rem;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  background: var(--MintCondition);
+  border-radius: 6px;
+  color: var(--Snow);
 }
 
 .buttons__wishlist svg {
-    margin-left: 0.25rem;
+  margin-left: 0.25rem;
 }
 
 .buttons__purchase {
-    width: 14.25rem;
-    height: 2.93rem;
-    margin-bottom: 1.5rem;
+  width: 14.25rem;
+  height: 2.93rem;
+  margin-bottom: 1.5rem;
 
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 24px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
 
-    border: 2px solid var(--SoJaded);
-    border-radius: 6px;
-    background-color: transparent;
-    color: var(--SoJaded);
+  border: 2px solid var(--SoJaded);
+  border-radius: 6px;
+  background-color: transparent;
+  color: var(--SoJaded);
 }
 .first__txt {
-    display: flex;
+  display: flex;
 }
 .txt__left,
 .txt__right {
-    width: 14.12rem;
-    margin-right: 1.62rem;
+  width: 14.12rem;
+  margin-right: 1.62rem;
 }
 .modalTitle {
-    margin: 0 0 0.5rem 0;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 21px;
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
 
-    color: var(--Fossil);
+  color: var(--Fossil);
 }
 .infoTxt {
-    margin: 0 0 1rem 0;
+  margin: 0 0 1rem 0;
 }
 .right__icons {
-    display: flex;
-    margin-top: 3.12rem;
+  display: flex;
+  margin-top: 3.12rem;
 }
 .second__trailer {
-    height: 13.563rem;
-    width: 24rem;
-    margin-bottom: 1rem;
+  height: 13.563rem;
+  width: 24rem;
+  margin-bottom: 1rem;
 }
 .second__imageRow {
-    display: flex;
+  display: flex;
 }
 .imageRow__img {
-    height: 6.5rem;
-    width: 11.5rem;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
+  height: 6.5rem;
+  width: 11.5rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 
 .website__list {
-    overflow: hidden;
+  overflow: hidden;
 }
 .hide {
-    display: none;
+  display: none;
 }
 
 .noMargin {
-    margin: 0%;
+  margin: 0%;
 }
 
 .body__info {
-    display: flex;
+  display: flex;
 }
 .platformLogoCard {
-    fill: var(--platformColor);
+  fill: var(--platformColor);
 }
 .platformLogoModal {
-    fill: var(--Snow);
+  fill: var(--Snow);
 }
 
 .header__burgerMenu {
-    display: none;
-    background-color: transparent;
-    margin: 1.719rem;
+  display: none;
+  margin: 1.719rem;
+}
+.burgerMenu__btn {
+  background-color: transparent;
 }
 
 @media only screen and (max-width: 1200px) {
-    .header__logo {
-        display: none;
-    }
-    .header__profile {
-        display: none;
-    }
-    .header__burgerMenu {
-        display: block;
-    }
-    .sideBar {
-        display: none;
-    }
-    .cardList--Row {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .header__search {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+  .header__logo {
+    display: none;
+  }
+  .header__profile {
+    display: none;
+  }
+  .header__burgerMenu {
+    display: block;
+  }
+  .sideBar {
+    display: none;
+  }
+  .cardList--Row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cardList--Column {
+    width: 90.625%;
+    margin: 0 auto;
+  }
+  .header__search {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 @media only screen and (max-width: 400px) {
-    .cardList--Row {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    .header__search {
-        position: absolute;
-        display: none;
-        top: 140%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 18.875rem;
-    }
-    .topContainer__darkmode,
-    .topContainer__listStyleButtons {
-        display: none;
-    }
-    .header__logo {
-        display: block;
-    }
-    .topContainer {
-        padding-top: 4rem;
-        padding-left: 1rem;
-    }
-    .topContainer__main {
-        font-weight: 800;
-        font-size: 28px;
-        line-height: 37px;
-    }
-    .topContainer__subtitle {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 19px;
-    }
-    .cardList {
-        height: 100%;
-    }
-    .cardList--Row__card {
-        width: 18rem;
-        height: 20.75rem;
-        margin: 1rem;
-    }
+  .cardList--Row {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .header__search {
+    position: absolute;
+    display: none;
+    top: 140%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18.875rem;
+  }
+  .topContainer__darkmode,
+  .topContainer__listStyleButtons {
+    display: none;
+  }
+  .header__logo {
+    display: block;
+  }
+  .topContainer {
+    padding-top: 4rem;
+    padding-left: 1rem;
+  }
+  .topContainer__main {
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 37px;
+  }
+  .topContainer__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+  }
+  .cardList {
+    height: 100%;
+  }
+  .cardList--Row__card {
+    width: 18rem;
+    height: 20.75rem;
+    margin: 1rem;
+  }
 }
