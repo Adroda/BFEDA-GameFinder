@@ -18,7 +18,6 @@ const platformApi = async (id) => {
         `https://api.rawg.io/api/games?key=${API_KEY}&parent_platforms=${id}`
     );
     var data = await response.json();
-    console.log(data.results);
     return data;
 };
 
@@ -59,9 +58,9 @@ search.addEventListener(
             dropdown = document.querySelectorAll('.list__item');
             dropdown.forEach((element, index) => {
                 element.addEventListener('click', async () => {
-                    const searchedGame = await searchApi(element.textContent);
-                    addToLastSearches(searchedGame.results[0]);
-                    let card = generateCard(searchedGame.results[0], index);
+                    const searchedGame = searchList[index];
+                    addToLastSearches(searchedGame);
+                    let card = await generateCard(searchedGame, index);
                     cardList.innerHTML = '';
                     cardList.insertAdjacentHTML('beforeend', card);
                     searchUl.classList.add('hide');
@@ -91,12 +90,23 @@ search.addEventListener('keypress', async (event) => {
         } else {
             games = await searchApi(search.value);
         }
-        console.log(games.results);
-        addToLastSearches(games.results[0]);
-        games.results.forEach(async (element, index) => {
-            card = await generateCard(element, index);
-            cardList.insertAdjacentHTML('beforeend', card);
+        let htmlCard;
+        getGameData(games.results).then((data) => {
+            console.log(data);
+            addToLastSearches(data[0]);
+            data.forEach(async (element, index) => {
+                card = await generateCard(element, index);
+                cardList.insertAdjacentHTML('beforeend', card);
+                htmlCard = document.getElementById(element.id);
+                htmlCard.addEventListener('click', () => {
+                    if (!modalOn) {
+                        modalOn = true;
+                        openModal(element);
+                    }
+                });
+            });
         });
+        overlay.classList.add('hide');
     }
 });
 
@@ -107,7 +117,6 @@ search.addEventListener('focus', () => {
 
 search.addEventListener('blur', () => {
     overlay.classList.add('hide');
-    searchUl.classList.add('hide');
 });
 
 overlay.addEventListener('click', () => {
@@ -117,8 +126,18 @@ overlay.addEventListener('click', () => {
 lastSearchesBtn.addEventListener('click', () => {
     cardList.innerHTML = '';
     let card;
-    lastSearches.forEach((element, index) => {
-        card = generateCard(element, index);
-        cardList.insertAdjacentHTML('beforeend', card);
+    getGameData(lastSearches).then((data) => {
+        let htmlCard;
+        data.forEach(async (element, index) => {
+            card = await generateCard(element, index);
+            cardList.insertAdjacentHTML('beforeend', card);
+            htmlCard = document.getElementById(element.id);
+            htmlCard.addEventListener('click', () => {
+                if (!modalOn) {
+                    modalOn = true;
+                    openModal(element);
+                }
+            });
+        });
     });
 });

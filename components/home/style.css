@@ -112,6 +112,7 @@ button {
 }
 .search__list--open {
     max-height: 353%;
+    z-index: 100;
 }
 
 .list__item {
@@ -148,16 +149,12 @@ button {
 .topContainer {
     display: flex;
     justify-content: space-between;
-    padding-top: 6%;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-top: 5rem;
+    padding-left: 2.5rem;
+    margin-right: 2.5rem;
 }
 .topContainer__main {
     margin-bottom: 0px;
-    height: 65px;
-    left: 2.78%;
-    right: 69.44%;
-    top: calc(50% - 65px / 2 - 366.5px);
 
     font-weight: 800;
     font-size: 48px;
@@ -306,13 +303,15 @@ button {
     overflow-y: scroll;
     height: 50rem;
 }
+::-webkit-scrollbar {
+    display: none;
+}
 .cardList--Row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    width: 84.5vw;
 }
 .cardList--Row__card {
-    width: 89.5%;
+    width: 21.938rem;
     height: 70%;
     margin: 24px;
 
@@ -648,6 +647,7 @@ button {
     margin-top: 3.12rem;
 }
 .second__trailer {
+    height: 13.563rem;
     width: 24rem;
     margin-bottom: 1rem;
 }
@@ -655,6 +655,7 @@ button {
     display: flex;
 }
 .imageRow__img {
+    height: 6.5rem;
     width: 11.5rem;
     margin-right: 1rem;
     margin-bottom: 1rem;
@@ -679,4 +680,77 @@ button {
 }
 .platformLogoModal {
     fill: var(--Snow);
+}
+
+.header__burgerMenu {
+    display: none;
+    background-color: transparent;
+    margin: 1.719rem;
+}
+
+@media only screen and (max-width: 1200px) {
+    .header__logo {
+        display: none;
+    }
+    .header__profile {
+        display: none;
+    }
+    .header__burgerMenu {
+        display: block;
+    }
+    .sideBar {
+        display: none;
+    }
+    .cardList--Row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .header__search {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .cardList--Row {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .header__search {
+        position: absolute;
+        display: none;
+        top: 140%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 18.875rem;
+    }
+    .topContainer__darkmode,
+    .topContainer__listStyleButtons {
+        display: none;
+    }
+    .header__logo {
+        display: block;
+    }
+    .topContainer {
+        padding-top: 4rem;
+        padding-left: 1rem;
+    }
+    .topContainer__main {
+        font-weight: 800;
+        font-size: 28px;
+        line-height: 37px;
+    }
+    .topContainer__subtitle {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+    }
+    .cardList {
+        height: 100%;
+    }
+    .cardList--Row__card {
+        width: 18rem;
+        height: 20.75rem;
+        margin: 1rem;
+    }
 }

@@ -1,5 +1,5 @@
 const API_KEY = 'fc335efe7cd744c492fff282c4440209';
-//TODO last searches trae object promise y el dropdown no anda
+
 const rowBtn = document.querySelector('.listStyleButtons__row');
 const columnBtn = document.querySelector('.listStyleButtons__column');
 let rowMode = true;
@@ -11,6 +11,7 @@ const modal = document.querySelector('.modal');
 const overlayModal = document.querySelector('.overlay2');
 const modalCross = document.querySelector('.modal__close');
 let modalOn = false;
+var gameData = [];
 
 let gamePage = 1;
 const fullScrollLength = 2104;
@@ -20,6 +21,7 @@ const api = async () => {
         `https://api.rawg.io/api/games?key=${API_KEY}&page=${gamePage}`
     );
     var data = await response.json();
+
     return data;
 };
 
@@ -29,6 +31,26 @@ const apiById = async (id) => {
     );
     var data = await response.json();
     return data;
+};
+
+const getGameData = (gameData) => {
+    //console.log(gameData);
+    let completeGameData;
+    const promises = [];
+    gameData.forEach((element) => {
+        const gameId = element.id;
+        const promise = fetch(
+            `https://api.rawg.io/api/games/${gameId}?key=${API_KEY}`
+        )
+            .then((res) => res.json())
+            .then((data) => {
+                completeGameData = Object.assign(element, data);
+                return completeGameData;
+            });
+        promises.push(promise);
+    });
+
+    return Promise.all(promises);
 };
 
 const apiVideo = async (id) => {
@@ -68,9 +90,6 @@ const generateCard = async (element, index) => {
             </div>
             </div>`;
     } else if (!rowMode) {
-        let gameById = await apiById(element.id);
-        let gameDesc = gameById.description_raw;
-
         return `<div class="cardList--Column__card" id = "${element.id}">
         <img
             class="card__img"
@@ -95,7 +114,7 @@ const generateCard = async (element, index) => {
             )}
             </div>
         </div>
-				<p class="card__desc">${gameDesc}</p>
+		<p class="card__desc">${element.description_raw}</p>
     </div>`;
     }
 };
@@ -159,7 +178,6 @@ const generatePlatforms = (platforms, isCard) => {
             default:
                 break;
         }
-        //TODO release date in the wrong format
     });
     return platformsList;
 };
@@ -174,6 +192,7 @@ const generateDevelopers = (developerList) => {
     });
     return developers;
 };
+
 const listPlatforms = (platforms) => {
     let platformsList = '';
     platforms.forEach((element) => {
@@ -195,10 +214,9 @@ const closeModal = () => {
 const openModal = async (game) => {
     //TODO arreglar el scroll, que no se pueda clickear nada atras del overlay, y q el website no se vaya tanto para la derecha, las chips no tienen los stilos ni la info bien kinda
     let promiseGame = await apiById(game.id);
-    let desc = promiseGame.description_raw;
-    let publisher = promiseGame.publishers[0].name;
+
     let website = promiseGame.website;
-    let developers = promiseGame.developers;
+
     let trailer = await apiVideo(game.id);
     let modalBg = `<img class="imgModal" src="${game.background_image}" alt="*" />`;
     insertImg.insertAdjacentHTML('beforeend', modalBg);
@@ -231,7 +249,7 @@ const openModal = async (game) => {
             </div>
             <div class="body__info">
                 <div class="info__first">
-                    <p class="first__description">${desc}</p>
+                    <p class="first__description">${game.description_raw}</p>
                     <div class="first__buttons">
                         <button class="buttons__wishlist">
                             <div>Add to Wishlist</div>
@@ -306,7 +324,7 @@ const openModal = async (game) => {
                                     Publisher
                                 </p>
                                 <p class="publisher__list infoTxt">
-                                    ${publisher}
+                                    ${game.publishers}
                                 </p>
                             </div>
                             <div class="left__website">
@@ -334,7 +352,7 @@ const openModal = async (game) => {
                                     Developer
                                 </p>
                                 <p class="developer__list infoTxt">
-                                    ${generateDevelopers(developers)}
+                                    ${generateDevelopers(game.developers)}
                                 </p>
                             </div>
                             <div class="right__ageRating">
@@ -437,19 +455,22 @@ const openModal = async (game) => {
 
 const renderCards = async (api) => {
     const games = await api();
+    const dataResults = games.results;
     let card;
-    games.results.forEach(async (element, index) => {
-        card = await generateCard(element, index);
-        cardList.insertAdjacentHTML('beforeend', card);
-        //if (card) {
-        let htmlCard = document.getElementById(element.id);
-        htmlCard.addEventListener('click', () => {
-            if (!modalOn) {
-                modalOn = true;
-                openModal(element);
-            }
+
+    getGameData(dataResults).then((data) => {
+        let htmlCard;
+        data.forEach(async (element, index) => {
+            card = await generateCard(element, index);
+            cardList.insertAdjacentHTML('beforeend', card);
+            htmlCard = document.getElementById(element.id);
+            htmlCard.addEventListener('click', () => {
+                if (!modalOn) {
+                    modalOn = true;
+                    openModal(element);
+                }
+            });
         });
-        //}
     });
 };
 renderCards(api);

@@ -97,7 +97,7 @@ carouselBottomWrapper.addEventListener('click', (event) => {
 });
 
 // Carousel Autoplay
-
+/*
 setInterval(() => {
     if (counter >= carouselImages.length - 1) return;
     carouselSlide.style.transition = 'transform 0.7s ease-in-out';
@@ -112,6 +112,6 @@ setInterval(() => {
             ].classList.add('carouselSlider__btn--active');
         }
     });
-}, 6000);
+}, 6000);*/
 
 window.addEventListener('resize', () => console.log('cambio la cosa')); //cambiar el tamaño del size aca adentro
