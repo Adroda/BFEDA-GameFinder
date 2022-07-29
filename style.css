@@ -13,8 +13,8 @@ html {
 
 html,
 * {
-  font-family: "Exo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'Exo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Ubuntu, 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 body {
@@ -22,7 +22,7 @@ body {
   left: 0%;
   right: 0%;
   bottom: 0%;
-  font: "Exo";
+  font: 'Exo';
   min-width: 100vw;
   min-height: 100vh;
   margin: 0%;
@@ -171,7 +171,7 @@ input:focus {
 
 .inputOptions__rememberMeCheckbox:checked {
   background-color: var(--MintCondition);
-  content: "";
+  content: '';
 }
 
 .inputOptions__rememberMe {
@@ -184,7 +184,6 @@ input:focus {
   font-weight: 400;
   font-size: 14px;
   line-height: 19px;
-  /* identical to box height */
 
   display: flex;
   align-items: center;
@@ -196,12 +195,11 @@ input:focus {
   margin-left: 105.36px;
   top: calc(50% - 19px / 2 - 85.5px);
 
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 19px;
-  /* identical to box height */
 
   display: flex;
   align-items: center;
@@ -252,12 +250,11 @@ input:focus {
   top: calc(50% - 19px / 2 + 37.5px);
   margin-top: 14px;
 
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 19px;
-  /* identical to box height */
 
   text-align: right;
 }

@@ -14,6 +14,7 @@
   --Ashtray: #515151;
   --Charcoal: #303030;
   --Fossil: #939393;
+  --burgerMenu: #2a2a2a;
 }
 
 html {
@@ -23,8 +24,8 @@ html {
 
 html,
 * {
-  font-family: "Exo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'Exo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Ubuntu, 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 body {
@@ -37,13 +38,12 @@ body {
   margin: 0;
   color: var(--charColor);
   background-color: var(--mainBg);
-  font: "Exo";
+  font: 'Exo';
   font-style: normal;
   overflow: hidden;
 }
 main {
   max-width: 1440;
-  margin: 0 auto;
 }
 button {
   border: none;
@@ -69,6 +69,61 @@ button {
 }
 .header__logo {
   width: 18.5vw;
+}
+.header div {
+  margin: 0;
+}
+.header__burgerMenu {
+  position: absolute;
+  top: 35%;
+  left: 3%;
+}
+.burgerMenuDropdown {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--burgerMenu);
+  z-index: 3;
+}
+.burgerMenuDropdown__profile {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #515151;
+}
+.burgerMenuDropdown__profile img {
+  margin-right: 0.5rem;
+}
+.burgerMenuDropdown__profile p {
+  margin: 0;
+}
+.burgerMenuDropdown .sideBar__topItem {
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+.burgerMenuDropdown__body {
+  height: 89%;
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+}
+
+.burgerMenuDropdown__logout {
+  margin-top: 0.625rem;
+  margin-bottom: 0.625rem;
+}
+.mobileModalClose {
+  position: absolute;
+  background-color: transparent;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
+.closeBurgerDropdown {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  background-color: transparent;
 }
 .header__search {
   position: relative;
@@ -298,9 +353,13 @@ button {
 .cardList {
   overflow-y: scroll;
   height: 50rem;
+  z-index: 100;
 }
 ::-webkit-scrollbar {
   display: none;
+}
+.cardListBox {
+  width: 90%;
 }
 .cardList--Row {
   padding: 24px;
@@ -477,6 +536,7 @@ button {
   display: flex;
   align-items: center;
   text-align: left;
+  overflow: scroll;
 }
 
 .card__desc {
@@ -496,7 +556,7 @@ button {
   z-index: 1;
 }
 .overlay2 {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -694,6 +754,22 @@ button {
 .burgerMenu__btn {
   background-color: transparent;
 }
+.logoutBox {
+  margin-top: auto;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  border-top: 0.5px solid #e1e1e4;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.header__openSearch {
+  display: none;
+  background-color: transparent;
+  margin: 1rem;
+}
 
 @media only screen and (max-width: 1200px) {
   .header__logo {
@@ -708,8 +784,12 @@ button {
   .sideBar {
     display: none;
   }
+  .cardListBox {
+    width: 100%;
+  }
   .cardList--Row {
     grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
   }
   .cardList--Column {
     width: 90.625%;
@@ -721,19 +801,74 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  .modal {
+    position: fixed;
+    width: 96%;
+    height: 96%;
+    margin: 2% 2% 2% 0;
+    background-image: linear-gradient(
+      to top,
+      var(--cardColor) 0%,
+      var(--cardColor) 70%,
+      rgba(48, 48, 48, 0.5) 100%
+    );
+  }
+  .imgModal {
+    position: fixed;
+    width: 96%;
+    height: auto;
+    top: 23.7%;
+  }
+  .first__txt {
+    flex-direction: column;
+  }
+  .info__second {
+    position: absolute;
+    right: -10%;
+    top: 40%;
+  }
+  .right__icons {
+    position: absolute;
+    bottom: 0;
+    right: 42%;
+  }
+  .first__description {
+    width: 110%;
+  }
+  .buttons__wishlist {
+    width: 20rem;
+  }
+  .first__buttons {
+    width: 150%;
+  }
+  .buttons__purchase {
+    width: 20rem;
+  }
+  .overlay2 {
+    height: 100%;
+  }
 }
 
 @media only screen and (max-width: 400px) {
+  .header {
+    height: 50px;
+  }
+  .header__logo {
+    display: none;
+  }
   .cardList--Row {
     grid-template-columns: repeat(1, 1fr);
   }
   .header__search {
     position: absolute;
     display: none;
-    top: 140%;
+    top: 141%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 18.875rem;
+  }
+  .search__list--open {
+    margin-top: 0.5rem;
   }
   .topContainer__darkmode,
   .topContainer__listStyleButtons {
@@ -741,6 +876,9 @@ button {
   }
   .header__logo {
     display: block;
+    justify-self: center;
+    width: 8.563rem;
+    margin-left: 6rem;
   }
   .topContainer {
     padding-top: 4rem;
@@ -757,11 +895,80 @@ button {
     line-height: 19px;
   }
   .cardList {
-    height: 100%;
+    padding: 0;
   }
   .cardList--Row__card {
     width: 18rem;
     height: 20.75rem;
     margin: 1rem;
+  }
+  .modal {
+    position: absolute;
+    top: 106%;
+    height: 95.438rem;
+    margin: 0;
+    width: 320px;
+    border-radius: 0;
+  }
+  .modal__close {
+    display: none;
+  }
+  .modal__body {
+    margin: 0;
+  }
+  .body__logos,
+  .body__title,
+  .body__chips,
+  .info__first {
+    margin: 0 1rem;
+  }
+  .imgModal {
+    top: 13.5%;
+    margin: 0;
+    left: 16%;
+    overflow: hidden;
+  }
+  .first__txt,
+  .first__buttons,
+  .body__info {
+    flex-direction: column;
+  }
+  .info__second,
+  .right__icons {
+    position: inherit;
+  }
+  .body__logos svg {
+    width: 24px;
+  }
+  .body__title {
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 37px;
+  }
+  .body__chips {
+    margin-top: 0.5rem;
+  }
+  .first__description {
+    width: 18rem;
+    height: 9.875rem;
+  }
+  .buttons__wishlist,
+  .buttons__purchase {
+    width: 18rem;
+  }
+  .right__icons {
+    margin: 0;
+  }
+  .info__second {
+    margin: 30px 0;
+  }
+  .second__trailer {
+    width: 20rem;
+  }
+  .imageRow__img {
+    width: 154.66px;
+  }
+  .overlay2 {
+    top: 50px;
   }
 }
