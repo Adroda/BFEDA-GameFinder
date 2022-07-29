@@ -507,13 +507,31 @@ rowBtn.addEventListener('click', () => {
   }
 });
 
-cardList.addEventListener('scroll', () => {
+cardList.addEventListener('scroll', async () => {
   if (
     cardList.scrollTop >=
     fullScrollLength * gamePage - (fullScrollLength * 20) / 100
   ) {
     gamePage++;
-    renderCards(api);
+    if (search.value === '') {
+      renderCards(api);
+    } else {
+      let games = await searchApi(search.value);
+      let htmlCard;
+      getGameData(games.results).then((data) => {
+        data.forEach(async (element, index) => {
+          card = await generateCard(element, index);
+          cardList.insertAdjacentHTML('beforeend', card);
+          htmlCard = document.getElementById(element.id);
+          htmlCard.addEventListener('click', () => {
+            if (!modalOn) {
+              modalOn = true;
+              openModal(element);
+            }
+          });
+        });
+      });
+    }
   }
 });
 

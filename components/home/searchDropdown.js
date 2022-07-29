@@ -9,7 +9,7 @@ const lastSearches = [];
 
 const searchApi = async (value) => {
   const response = await fetch(
-    `https://api.rawg.io/api/games?key=${API_KEY}&search=${value}`
+    `https://api.rawg.io/api/games?key=${API_KEY}&search=${value}&page=${gamePage}`
   );
   let data = await response.json();
   return data;
@@ -92,6 +92,7 @@ search.addEventListener('keypress', async (event) => {
       games = await searchApi(search.value);
     }
     let htmlCard;
+    gamePage = 1;
     getGameData(games.results).then((data) => {
       addToLastSearches(data[0]);
       data.forEach(async (element, index) => {
@@ -107,9 +108,14 @@ search.addEventListener('keypress', async (event) => {
       });
     });
     overlay.classList.add('hide');
+    searchUl.classList.add('hide');
   }
 });
 
+search.addEventListener('click', () => {
+  overlay.classList.remove('hide');
+  searchUl.classList.remove('hide');
+});
 search.addEventListener('focus', () => {
   overlay.classList.remove('hide');
   searchUl.classList.remove('hide');
@@ -117,6 +123,7 @@ search.addEventListener('focus', () => {
 
 search.addEventListener('blur', () => {
   overlay.classList.add('hide');
+  searchUl.classList.add('hide');
 });
 
 overlay.addEventListener('click', () => {
