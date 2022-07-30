@@ -18,20 +18,28 @@ let gamePage = 1;
 const fullScrollLength = 1333;
 
 const api = async () => {
-  const response = await fetch(
-    `https://api.rawg.io/api/games?key=${API_KEY}&page=${gamePage}`
-  );
-  let data = await response.json();
+  try {
+    const response = await fetch(
+      `https://api.rawg.io/api/games?key=${API_KEY}&page=${gamePage}`
+    );
+    let data = await response.json();
 
-  return data;
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const apiById = async (id) => {
-  const response = await fetch(
-    `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
-  );
-  let data = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
+    );
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const getGameData = (gameData) => {
@@ -39,14 +47,18 @@ const getGameData = (gameData) => {
   const promises = [];
   gameData.forEach((element) => {
     const gameId = element.id;
-    const promise = fetch(
-      `https://api.rawg.io/api/games/${gameId}?key=${API_KEY}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        completeGameData = Object.assign(element, data);
-        return completeGameData;
-      });
+    try {
+      const promise = fetch(
+        `https://api.rawg.io/api/games/${gameId}?key=${API_KEY}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          completeGameData = Object.assign(element, data);
+          return completeGameData;
+        });
+    } catch (error) {
+      console.log(error);
+    }
     promises.push(promise);
   });
 
@@ -54,11 +66,15 @@ const getGameData = (gameData) => {
 };
 
 const apiVideo = async (id) => {
-  const response = await fetch(
-    `https://api.rawg.io/api/games/${id}/movies?key=${API_KEY}`
-  );
-  let data = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `https://api.rawg.io/api/games/${id}/movies?key=${API_KEY}`
+    );
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 const generateCard = async (element, index) => {
   if (rowMode) {

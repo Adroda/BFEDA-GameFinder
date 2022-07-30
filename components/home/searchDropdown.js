@@ -8,18 +8,26 @@ let dropdown = {};
 const lastSearches = [];
 
 const searchApi = async (value) => {
-  const response = await fetch(
-    `https://api.rawg.io/api/games?key=${API_KEY}&search=${value}&page=${gamePage}`
-  );
-  let data = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `https://api.rawg.io/api/games?key=${API_KEY}&search=${value}&page=${gamePage}`
+    );
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 const platformApi = async (id) => {
-  const response = await fetch(
-    `https://api.rawg.io/api/games?key=${API_KEY}&parent_platforms=${id}`
-  );
-  let data = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `https://api.rawg.io/api/games?key=${API_KEY}&parent_platforms=${id}`
+    );
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const addToLastSearches = (game) => {
@@ -70,7 +78,7 @@ search.addEventListener(
     } else {
       searchUl.innerHTML = '';
     }
-  }, 100)
+  }, 500)
 );
 
 search.addEventListener('keypress', async (event) => {
