@@ -21,7 +21,6 @@ if (userToken) {
       icon.classList.toggle('hide');
     });
   });
-
   const clearErrors = () => {
     mailInput.classList.remove('loginBox__userEmail--error');
     document
