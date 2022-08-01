@@ -26,7 +26,7 @@ const api = async () => {
 
     return data;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
 
@@ -38,7 +38,7 @@ const apiById = async (id) => {
     let data = await response.json();
     return data;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
 
@@ -56,10 +56,10 @@ const getGameData = (gameData) => {
           completeGameData = Object.assign(element, data);
           return completeGameData;
         });
+      promises.push(promise);
     } catch (error) {
-      console.log(error);
+      throw error;
     }
-    promises.push(promise);
   });
 
   return Promise.all(promises);
@@ -73,7 +73,7 @@ const apiVideo = async (id) => {
     let data = await response.json();
     return data;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
 const generateCard = async (element, index) => {

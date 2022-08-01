@@ -15,7 +15,7 @@ const searchApi = async (value) => {
     let data = await response.json();
     return data;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
 const platformApi = async (id) => {
@@ -26,7 +26,7 @@ const platformApi = async (id) => {
     let data = await response.json();
     return data;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
 

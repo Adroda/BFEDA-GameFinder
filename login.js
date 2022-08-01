@@ -66,7 +66,7 @@ if (userToken) {
         }
       })
       .catch((err) => {
-        throw err;
+        console.log(err);
       });
   });
 }
